@@ -4,20 +4,17 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="This is a simple Weather App demonstration">
+        <meta name="description" content="This is a simple demonstration">
         <meta name="robots" content="all" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
         {% endblock %}
-
         {% block javascripts %}
-{% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
         {{ pwa() }}
     </head>
     <body>
-        {% block header %}{% include 'partials/header.html.twig' %}{% endblock %}
         {% block body %}{% endblock %}
-        {% block footer %}{% include 'partials/footer.html.twig' %}{% endblock %}
     </body>
 </html>
