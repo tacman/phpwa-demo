@@ -1,0 +1,25 @@
+pwa:
+    image_processor: 'pwa.image_processor.imagick'
+#    background_color: "#"
+#    theme_color: "#"
+#    name: 'app.name'
+#    short_name: 'app.shortname'
+#    description: 'app.description'
+    orientation: "any"
+    display: "standalone"
+    scope: "/"
+    display_override: ['fullscreen', 'minimal-ui', 'window-controls-overlay']
+    id: "/"
+    start_url: "./"
+    icons: []
+    screenshots: []
+    categories: []
+    shortcuts: []
+    serviceworker:
+        src: "sw.js"
+        warm_cache_urls:
+            - 'app_homepage'
+        offline_fallback: 'app_homepage'
+    edge_side_panel:
+        preferred_width: 280
+    widgets: []
