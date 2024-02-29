@@ -10,11 +10,13 @@
         {% block stylesheets %}
         {% endblock %}
         {% block javascripts %}
-        {% block importmap %}{{ importmap('app') }}{% endblock %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
         {{ pwa() }}
     </head>
     <body>
+    {% block content %}
         {% block body %}{% endblock %}
+    {% endblock %}
     </body>
 </html>
