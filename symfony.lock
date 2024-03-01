@@ -46,6 +46,9 @@
     "spomky-labs/phpwa": {
         "version": "1.0.2"
     },
+    "survos/deployment-bundle": {
+        "version": "1.5.163"
+    },
     "symfony/asset-mapper": {
         "version": "7.0",
         "recipe": {

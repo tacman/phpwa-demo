@@ -17,6 +17,7 @@
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.25",
         "spomky-labs/phpwa": "^1.0",
+        "survos/deployment-bundle": "^1.5",
         "symfony/asset": "7.0.*",
         "symfony/asset-mapper": "7.0.*",
         "symfony/clock": "7.0.*",
