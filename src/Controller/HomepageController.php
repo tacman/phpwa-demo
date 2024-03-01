@@ -29,7 +29,7 @@ class HomepageController extends AbstractController
 
         return $this->render('homepage/index.html.twig', [
             'form' => $form,
-            'items' => $this->itemRepository->findAll(),
+            'items' => $this->itemRepository->findBy([], ['id' => 'DESC'], 50),
         ]);
     }
 

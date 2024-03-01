@@ -3,6 +3,7 @@
 {% block title %}Symfony+PWA=💕{% endblock %}
 
 {% block body %}
+
     <section class="bg-white dark:bg-gray-900">
         <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
             <a href="https://pwa.spomky-labs.com" class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
@@ -19,6 +20,11 @@
     </section>
     <div class="antialiased">
         <main class="max-w-6xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
+
+            <div {{ stimulus_controller('hello') }}>
+                Welcome message here...
+            </div>
+
             <div class="grid sm:grid-cols-2 gap-2 grid-cols-1">
                 <div>
                     {{ form_start(form, {attr: {class: ' class="max-w-sm mx-auto"'}}) }}
@@ -33,11 +39,37 @@
                 </div>
                 <div class="px-8">
                     <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+                        {% set _sc = 'items' %}
+                        <div {{ stimulus_controller(_sc, {
+                            collectionUrl: path('_api_/items{._format}_get_collection', {
+                                'order[name]': 'desc'
+                            })
+                        }) }}>
+                            <div {{ stimulus_target(_sc, 'message') }}>
+                                ...Loading the todo list...
+                            </div>
+
+                            <button  {{ stimulus_action(_sc, 'refresh') }} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Refresh
+                            </button>
+
+                            <div {{ stimulus_target(_sc, 'list') }}>
+                                List here.
+                            </div>
+                        </div>
                         {% for item in items %}
                             <li class="flex items-center justify-between py-4 hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:hover:bg-gray-600 dark:hover:text-white">
                                 <div>
                                     <span class="text-gray-900 dark:text-white {% if item.done %}line-through{% endif %}">{{ item.name }}</span><br>
-                                    <span class="text-xs text-gray-500 dark:text-gray-400">{{ item.createdAt|time_diff }}</span>
+                                    <time data-controller="timeago"
+                                          data-timeago-add-suffix-value="true"
+                                          data-timeago-include-seconds-value="true"
+                                          data-timeago-refresh-interval-value="1000"
+                                          data-timeago-datetime-value="{{ item.createdAt|date('c') }}"></time>.
+
+{#                                    <i>via twig</i>#}
+{#                                    <span text-xs text-gray-500 dark:text-gray-400">{{ item.createdAt|time_diff }}</span>#}
+
                                 </div>
                                 <div>
                                     {% if item.done %}
@@ -53,5 +85,17 @@
                 </div>
             </div>
         </main>
+    </div>
+
+    <div class="footer">
+        {{ _self }} on {{ 'now'|date }}
+
+        <time data-controller="timeago"
+              data-timeago-add-suffix-value="true"
+              data-timeago-include-seconds-value="true"
+              data-timeago-refresh-interval-value="1000"
+              data-timeago-datetime-value="{{ 'now'|date('c') }}"></time>.
+
+
     </div>
 {% endblock %}
