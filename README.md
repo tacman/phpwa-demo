@@ -4,7 +4,7 @@
 
 This application is a PWA (Progressive Web Application) built with Symfony and PHPWA.
 
-## Getting Started
+## Getting Started (Docker)
 
 
 ### With Docker
@@ -27,6 +27,12 @@ This application is a PWA (Progressive Web Application) built with Symfony and P
 7. Run `symfony console tailwind:build` to build the frontend assets
 8. Open `https://localhost:8000` in your favorite web browser
 9. Run `symfony server:stop` to stop the server
+
+## Getting Started
+
+Install Symfony CLI and PostgreSQL
+
+bin/console d:d:c
 
 ## License
 
