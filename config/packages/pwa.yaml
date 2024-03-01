@@ -31,4 +31,5 @@ pwa:
         workbox:
             warm_cache_urls:
                 - 'app_homepage'
+                - '_api_/items{._format}_get_collection'
             page_fallback: 'app_homepage'
