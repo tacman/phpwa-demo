@@ -16,6 +16,8 @@ This application is a PWA (Progressive Web Application) built with Symfony and P
 
 Install Symfony CLI and PostgreSQL
 
+composer require spomky-labs/phpwa
+
 bin/console d:d:c
 
 ## License
