@@ -23,7 +23,6 @@ export default class extends Controller {
       const response = await fetch(this.collectionUrlValue);
       if (!response.ok) {
         throw new Error("Network response was not OK");
-
         this.errorTarget.innerHTML = 'unable to fetch items at this time.';
         console.error('Failed');
         return;
