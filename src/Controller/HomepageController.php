@@ -20,10 +20,9 @@ class HomepageController extends AbstractController
     public function homepage(Request $request): Response
     {
         $form = $this->itemHandler->prepare();
-        $isValid = $this->itemHandler->handle($form, $request);
-        if ($isValid) {
+        $item = $this->itemHandler->handle($form, $request);
+        if ($item !== null) {
             $this->addFlash('success', 'Item added');
-
             return $this->redirectToRoute('app_homepage');
         }
 
@@ -33,7 +32,7 @@ class HomepageController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/toggle', name: 'app_toggle', methods: [Request::METHOD_POST])]
+    #[Route('/items/{id}/toggle', name: 'app_toggle', methods: [Request::METHOD_POST])]
     public function toggle(string $id): Response
     {
         $item = $this->itemRepository->findOneById($id);
@@ -46,7 +45,7 @@ class HomepageController extends AbstractController
         return $this->redirectToRoute('app_homepage');
     }
 
-    #[Route('/{id}/remove', name: 'app_remove', methods: [Request::METHOD_POST])]
+    #[Route('/items/{id}/remove', name: 'app_remove', methods: [Request::METHOD_POST])]
     public function remove(string $id): Response
     {
         $item = $this->itemRepository->findOneById($id);

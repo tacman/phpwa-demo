@@ -16,7 +16,6 @@ export default class extends Controller {
     this.loadList();
   }
 
-
   async loadList() {
     try {
       // this endpoint will return CORS error

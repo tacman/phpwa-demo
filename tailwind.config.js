@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
@@ -47,5 +49,11 @@ module.exports = {
         'Noto Color Emoji'
       ]
     }
-  }
+  },
+  plugins: [
+    plugin(({ addVariant }) => {
+      addVariant('offline', '&[data-connection-status="OFFLINE"]')
+      addVariant('online', '&[data-connection-status="ONLINE"]')
+    }),
+  ]
 }
