@@ -1,0 +1,640 @@
+# Default configuration for extension with alias: "pwa"
+pwa:
+
+    # The path type reference to generate paths/URLs. See https://symfony.com/doc/current/routing.html#generating-urls-in-controllers for more information.
+    path_type_reference:  1
+
+        # Examples:
+        - 1
+        - 0
+        - 3
+        - 2
+
+    # The image processor to use to generate the icons of different sizes.
+    image_processor:      null # Example: SpomkyLabs\PwaBundle\ImageProcessor\GDImageProcessor
+
+    # The Panther Client for generating screenshots. If not set, the default client will be used.
+    web_client:           null
+    manifest:
+        enabled:              false
+
+        # The public URL of the manifest file.
+        public_url:           /site.webmanifest # Example: /site.manifest
+
+        # The background color of the application. It  should match the background-color CSS property in the sites stylesheet for a smooth transition between launching the web application and loading the site's content.
+        background_color:     ~ # Example: red
+
+        # The categories of the application.
+        categories:
+
+            # Example:
+            - [news, sports, lifestyle]
+
+        # The description of the application.
+        description:          ~ # Example: 'My awesome application'
+
+        # The display mode of the application.
+        display:              ~ # Example: standalone
+
+        # A sequence of display modes that the browser will consider before using the display member.
+        display_override:
+
+            # Example:
+            - [fullscreen, minimal-ui]
+
+        # A string that represents the identity of the web application.
+        id:                   ~ # Example: '?homescreen=1'
+
+        # The orientation of the application.
+        orientation:          ~ # Example: portrait-primary
+
+        # The direction of the application.
+        dir:                  ~ # Example: rtl
+
+        # The language of the application.
+        lang:                 ~ # Example: ar
+
+        # The name of the application.
+        name:                 ~ # Example: 'My awesome application'
+
+        # The short name of the application.
+        short_name:           ~ # Example: awesome_app
+
+        # The scope of the application.
+        scope:                ~ # Example: /app/
+
+        # The start URL of the application.
+        start_url:            ~ # Example: 'https://example.com'
+
+        # The theme color of the application.
+        theme_color:          ~ # Example: red
+
+        # Specifies whether or not your app supports the side panel view in Microsoft Edge.
+        edge_side_panel:
+
+            # Specifies the preferred width of the side panel view in Microsoft Edge.
+            preferred_width:      ~
+
+        # Specifies the International Age Rating Coalition (IARC) rating ID for the app. See https://www.globalratings.com/how-iarc-works.aspx for more information.
+        iarc_rating_id:       ~
+
+        # Specifies a list of origin patterns to associate with. This allows for your app to control multiple subdomains and top-level domains as a single entity.
+        scope_extensions:
+
+            # Prototype
+            -
+
+                # Specifies the origin pattern to associate with.
+                origin:               ~ # Required, Example: '*.foo.com'
+
+        # Specifies the default link handling for the web app.
+        handle_links:         ~
+
+            # Examples:
+            - auto
+            - preferred
+            - not-preferred
+
+        # The icons of the application.
+        icons:
+
+            # Prototype
+            -
+
+                # The path to the icon. Can be served by Asset Mapper.
+                src:                  ~ # Required, Example: icon/logo.svg
+
+                # The sizes of the icon. 16 means 16x16, 32 means 32x32, etc. 0 means "any" (i.e. it is a vector image).
+                sizes:
+
+                    # Example:
+                    - ['16', '32']
+
+                # The icon mime type.
+                type:                 ~
+
+                    # Examples:
+                    - image/webp
+                    - image/png
+
+                # The purpose of the icon.
+                purpose:              ~
+
+                    # Examples:
+                    - any
+                    - maskable
+                    - monochrome
+
+        # The screenshots of the application.
+        screenshots:
+
+            # Prototype
+            -
+
+                # The path to the screenshot. Can be served by Asset Mapper.
+                src:                  ~ # Example: screenshot/lowres.webp
+                height:               null # Example: '1080'
+                width:                null # Example: '1080'
+
+                # The form factor of the screenshot. Will guess the form factor if not set.
+                form_factor:          ~
+
+                    # Examples:
+                    - wide
+                    - narrow
+
+                # The label of the screenshot.
+                label:                ~ # Example: 'Homescreen of Awesome App'
+
+                # The platform of the screenshot.
+                platform:             ~
+
+                    # Examples:
+                    - android
+                    - windows
+                    - chromeos
+                    - ipados
+                    - ios
+                    - kaios
+                    - macos
+                    - windows
+                    - xbox
+
+                # The format of the screenshot. Will convert the file if set.
+                format:               ~
+
+                    # Examples:
+                    - image/jpg
+                    - image/png
+                    - image/webp
+
+        # It specifies an array of objects representing the types of files an installed progressive web app (PWA) can handle.
+        file_handlers:
+
+            # Prototype
+            -
+
+                # The action to take.
+                action:
+
+                    # The URL or route name.
+                    path:                 ~ # Required
+
+                        # Example:
+                        - /handle-audio-file
+
+                    # The parameters of the action. Only used if the action is a route to a controller.
+                    params:               []
+
+                # The file types that the action will be applied to.
+                accept:               # Example: 'image/*'
+
+                    # Prototype
+                    name:                 []
+
+        # The launch handler of the application.
+        launch_handler:
+
+            # The client mode of the application.
+            client_mode:
+
+                # Examples:
+                - focus-existing
+                - auto
+
+        # The protocol handlers of the application.
+        protocol_handlers:
+
+            # Prototype
+            -
+
+                # The protocol of the handler.
+                protocol:             ~ # Required, Example: web+jngl
+
+                # The URL of the handler.
+                url:
+
+                    # The URL or route name.
+                    path:                 ~ # Required
+
+                        # Examples:
+                        - 'https://example.com'
+                        - app_action_route
+                        - /do/action
+
+                    # The parameters of the action. Only used if the action is a route to a controller.
+                    params:               []
+
+        # The prefer related native applications of the application.
+        prefer_related_applications: ~
+
+        # The related applications of the application.
+        related_applications:
+
+            # Prototype
+            -
+
+                # The platform of the application.
+                platform:             ~ # Required, Example: play
+
+                # The URL of the application.
+                url:
+
+                    # The URL or route name.
+                    path:                 ~ # Required
+
+                        # Example:
+                        - 'https://play.google.com/store/apps/details?id=com.example.app1'
+
+                    # The parameters of the action. Only used if the action is a route to a controller.
+                    params:               []
+
+                # The ID of the application.
+                id:                   ~ # Example: com.example.app1
+
+        # The shortcuts of the application.
+        shortcuts:
+
+            # Prototype
+            -
+
+                # The name of the shortcut.
+                name:                 ~ # Required, Example: 'Awesome shortcut'
+
+                # The short name of the shortcut.
+                short_name:           ~ # Example: shortcut
+
+                # The description of the shortcut.
+                description:          ~ # Example: 'This is an awesome shortcut'
+
+                # The URL of the shortcut.
+                url:
+
+                    # The URL or route name.
+                    path:                 ~ # Required
+
+                        # Examples:
+                        - 'https://example.com'
+                        - app_action_route
+                        - /do/action
+
+                    # The parameters of the action. Only used if the action is a route to a controller.
+                    params:               []
+
+                # The icons of the shortcut.
+                icons:
+
+                    # Prototype
+                    -
+
+                        # The path to the icon. Can be served by Asset Mapper.
+                        src:                  ~ # Required, Example: icon/logo.svg
+
+                        # The sizes of the icon. 16 means 16x16, 32 means 32x32, etc. 0 means "any" (i.e. it is a vector image).
+                        sizes:
+
+                            # Example:
+                            - ['16', '32']
+
+                        # The icon mime type.
+                        type:                 ~
+
+                            # Examples:
+                            - image/webp
+                            - image/png
+
+                        # The purpose of the icon.
+                        purpose:              ~
+
+                            # Examples:
+                            - any
+                            - maskable
+                            - monochrome
+
+        # The share target of the application.
+        share_target:
+
+            # The action of the share target.
+            action:
+
+                # The URL or route name.
+                path:                 ~ # Required
+
+                    # Example:
+                    - /shared-content-receiver/
+
+                # The parameters of the action. Only used if the action is a route to a controller.
+                params:               []
+
+            # The method of the share target.
+            method:               ~ # Example: GET
+
+            # The enctype of the share target. Ignored if method is GET.
+            enctype:              ~ # Example: multipart/form-data
+
+            # The parameters of the share target.
+            params:               # Required
+
+                # The title of the share target.
+                title:                ~ # Example: name
+
+                # The text of the share target.
+                text:                 ~ # Example: description
+
+                # The URL of the share target.
+                url:                  ~ # Example: link
+
+                # The files of the share target.
+                files:                []
+
+        # EXPERIMENTAL. Specifies PWA-driven widgets. See https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/widgets for more information
+        widgets:
+
+            # Prototype
+            -
+
+                # The title of the widget, presented to users.
+                name:                 ~ # Required
+
+                # An alternative short version of the name.
+                short_name:           ~
+
+                # The description of the widget.
+                description:          ~ # Required, Example: 'My awesome widget'
+
+                # An array of icons to be used for the widget. If missing, the icons manifest member is used instead. Icons larger than 1024x1024 are ignored.
+                icons:
+
+                    # Prototype
+                    -
+
+                        # The path to the icon. Can be served by Asset Mapper.
+                        src:                  ~ # Required, Example: icon/logo.svg
+
+                        # The sizes of the icon. 16 means 16x16, 32 means 32x32, etc. 0 means "any" (i.e. it is a vector image).
+                        sizes:
+
+                            # Example:
+                            - ['16', '32']
+
+                        # The icon mime type.
+                        type:                 ~
+
+                            # Examples:
+                            - image/webp
+                            - image/png
+
+                        # The purpose of the icon.
+                        purpose:              ~
+
+                            # Examples:
+                            - any
+                            - maskable
+                            - monochrome
+
+                # The screenshots of the widget
+                screenshots:
+
+                    # Prototype
+                    -
+
+                        # The path to the screenshot. Can be served by Asset Mapper.
+                        src:                  ~ # Example: screenshot/lowres.webp
+                        height:               null # Example: '1080'
+                        width:                null # Example: '1080'
+
+                        # The form factor of the screenshot. Will guess the form factor if not set.
+                        form_factor:          ~
+
+                            # Examples:
+                            - wide
+                            - narrow
+
+                        # The label of the screenshot.
+                        label:                ~ # Example: 'Homescreen of Awesome App'
+
+                        # The platform of the screenshot.
+                        platform:             ~
+
+                            # Examples:
+                            - android
+                            - windows
+                            - chromeos
+                            - ipados
+                            - ios
+                            - kaios
+                            - macos
+                            - windows
+                            - xbox
+
+                        # The format of the screenshot. Will convert the file if set.
+                        format:               ~
+
+                            # Examples:
+                            - image/jpg
+                            - image/png
+                            - image/webp
+
+                # A string used to reference the widget in the PWA service worker.
+                tag:                  ~ # Required
+
+                # The template to use to display the widget in the operating system widgets dashboard. Note: this property is currently only informational and not used. See ms_ac_template below.
+                template:             ~
+
+                # The URL of the custom Adaptive Cards template to use to display the widget in the operating system widgets dashboard.
+                ms_ac_template:
+
+                    # The URL or route name.
+                    path:                 ~ # Required
+
+                        # Examples:
+                        - 'https://example.com'
+                        - app_action_route
+                        - /do/action
+
+                    # The parameters of the action. Only used if the action is a route to a controller.
+                    params:               []
+
+                # The URL where the data to fill the template with can be found. If present, this URL is required to return valid JSON.
+                data:
+
+                    # The URL or route name.
+                    path:                 ~ # Required
+
+                        # Examples:
+                        - 'https://example.com'
+                        - app_action_route
+                        - /do/action
+
+                    # The parameters of the action. Only used if the action is a route to a controller.
+                    params:               []
+
+                # The MIME type for the widget data.
+                type:                 ~
+
+                # A boolean indicating if the widget requires authentication.
+                auth:                 ~
+
+                # The frequency, in seconds, at which the widget will be updated. Code in your service worker must perform the updating; the widget is not updated automatically. See Access widget instances at runtime.
+                update:               ~
+
+                # A boolean indicating whether to allow multiple instances of the widget. Defaults to true.
+                multiple:             true
+    serviceworker:
+        enabled:              false
+
+        # The path to the service worker source file. Can be served by Asset Mapper.
+        src:                  ~ # Required, Example: script/sw.js
+
+        # The public URL to the service worker.
+        dest:                 /sw.js # Example: /sw.js
+
+        # Whether to skip waiting for the service worker to be activated.
+        skip_waiting:         false
+
+        # The configuration of the workbox.
+        workbox:
+            enabled:              true
+
+            # Whether to use the local workbox or the CDN.
+            use_cdn:              false
+
+            # The version of workbox. When using local files, the version shall be "7.0.0."
+            version:              7.0.0
+
+            # The public path to the local workbox. Only used if use_cdn is false.
+            workbox_public_url:   /workbox
+
+            # The placeholder for the workbox import. Will be replaced by the workbox import.
+            workbox_import_placeholder: //WORKBOX_IMPORT_PLACEHOLDER # Example: //WORKBOX_IMPORT_PLACEHOLDER
+
+            # The placeholder for the standard rules. Will be replaced by caching strategies.
+            standard_rules_placeholder: //STANDARD_RULES_PLACEHOLDER # Example: //STANDARD_RULES_PLACEHOLDER
+
+            # The placeholder for the offline fallback. Will be replaced by the URL.
+            offline_fallback_placeholder: //OFFLINE_FALLBACK_PLACEHOLDER # Example: //OFFLINE_FALLBACK_PLACEHOLDER
+
+            # The placeholder for the widgets. Will be replaced by the widgets management events.
+            widgets_placeholder:  //WIDGETS_PLACEHOLDER # Example: //WIDGETS_PLACEHOLDER
+
+            # Whether to clear the cache during the service worker activation.
+            clear_cache:          true
+
+            # The name of the image cache.
+            image_cache_name:     images
+
+            # The name of the font cache.
+            font_cache_name:      fonts
+
+            # The name of the page cache.
+            page_cache_name:      pages
+
+            # The name of the asset cache.
+            asset_cache_name:     assets
+
+            # The URL of the offline page fallback.
+            page_fallback:
+
+                # The URL or route name.
+                path:                 ~ # Required
+
+                    # Examples:
+                    - 'https://example.com'
+                    - app_action_route
+                    - /do/action
+
+                # The parameters of the action. Only used if the action is a route to a controller.
+                params:               []
+
+            # The URL of the offline image fallback.
+            image_fallback:
+
+                # The URL or route name.
+                path:                 ~ # Required
+
+                    # Examples:
+                    - 'https://example.com'
+                    - app_action_route
+                    - /do/action
+
+                # The parameters of the action. Only used if the action is a route to a controller.
+                params:               []
+
+            # The URL of the offline font fallback.
+            font_fallback:
+
+                # The URL or route name.
+                path:                 ~ # Required
+
+                    # Examples:
+                    - 'https://example.com'
+                    - app_action_route
+                    - /do/action
+
+                # The parameters of the action. Only used if the action is a route to a controller.
+                params:               []
+
+            # The regex to match the images.
+            image_regex:          '/\.(ico|png|jpe?g|gif|svg|webp|bmp)$/' # Example: '/\.(ico|png|jpe?g|gif|svg|webp|bmp)$/'
+
+            # The regex to match the static files.
+            static_regex:         /\.(css|js|json|xml|txt|woff2|ttf|eot|otf|map|webmanifest)$/ # Example: /\.(css|js|json|xml|txt|woff2|ttf|eot|otf|map|webmanifest)$/
+
+            # The maximum number of entries in the image cache.
+            max_image_cache_entries: 60
+
+                # Examples:
+                - 50
+                - 100
+                - 200
+
+            # The maximum number of seconds before the image cache is invalidated.
+            max_image_age:        31536000
+
+                # Examples:
+                - 31536000
+                - 2592000
+                - 604800
+
+            # The maximum number of entries in the font cache.
+            max_font_cache_entries: 30
+
+                # Examples:
+                - 30
+                - 50
+                - 100
+
+            # The maximum number of seconds before the font cache is invalidated.
+            max_font_age:         31536000
+
+                # Examples:
+                - 31536000
+                - 2592000
+                - 604800
+
+            # The network timeout in seconds before cache is called (for warm cache URLs only).
+            network_timeout_seconds: 3
+
+                # Examples:
+                - 1
+                - 2
+                - 5
+
+            # The URLs to warm the cache. The URLs shall be served by the application.
+            warm_cache_urls:
+
+                # Prototype
+                -
+
+                    # The URL of the shortcut.
+                    path:                 ~ # Required, Example: app_homepage
+
+                    # The parameters of the action.
+                    params:               []
+
+        # The scope of the service worker.
+        scope:                / # Example: /app/
+
+        # Whether the service worker should use the cache.
+        use_cache:            true
+
