@@ -1,4 +1,23 @@
 {
-    "controllers": [],
+    "controllers": {
+        "@spomky-labs/pwa-bundle": {
+            "connection-status": {
+                "enabled": true,
+                "fetch": "eager"
+            }
+        },
+        "@survos/pwa-extra-bundle": {
+            "detector": {
+                "enabled": true,
+                "fetch": "lazy",
+                "autoimport": []
+            },
+            "install": {
+                "enabled": true,
+                "fetch": "lazy",
+                "autoimport": []
+            }
+        }
+    },
     "entrypoints": []
 }
