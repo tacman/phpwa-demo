@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Form\ItemHandler;
 use App\Repository\ItemRepository;
+use Survos\PwaExtraBundle\Attribute\PwaExtra;
+use Survos\PwaExtraBundle\Service\PwaService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,12 +30,19 @@ class HomepageController extends AbstractController
         }
 
         return $this->render('homepage/index.html.twig', [
-            'form' => $form,
+            'form' => $form->createView(),
             'items' => $this->itemRepository->findBy([], ['id' => 'DESC'], 50),
         ]);
     }
 
-    #[Route('/{id}/toggle', name: 'app_toggle', methods: [Request::METHOD_POST])]
+    #[Route('/about', name: 'app_about', methods: [Request::METHOD_GET])]
+    #[PwaExtra(cacheStrategy: PwaService::CacheFirst)]
+    public function about(Request $request): Response
+    {
+        return $this->render('app/about.html.twig');
+    }
+
+        #[Route('/{id}/toggle', name: 'app_toggle', methods: [Request::METHOD_POST])]
     public function toggle(string $id): Response
     {
         $item = $this->itemRepository->findOneById($id);
