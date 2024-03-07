@@ -73,4 +73,10 @@ return [
     '@hotwired/turbo' => [
         'version' => '7.3.0',
     ],
+    'babel-runtime/core-js/promise' => [
+        'version' => '6.26.0',
+    ],
+    'core-js/library/fn/promise' => [
+        'version' => '2.6.12',
+    ],
 ];

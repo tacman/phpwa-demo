@@ -40,6 +40,11 @@
             installButton.classList.remove('hover:bg-gray-50', 'dark:hover:bg-gray-800');
             installButton.classList.add('text-white', 'bg-blue-400', 'dark:bg-blue-500', 'cursor-not-allowed', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center');
         }
+
+        const bc = new BroadcastChannel("background-sync");
+        bc.onmessage = (event) => {
+            console.log(event.data);
+        };
     </script>
 {% endblock %}
 {% block body %}
