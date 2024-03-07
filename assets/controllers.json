@@ -8,6 +8,10 @@
             "backgroundsync-form": {
                 "enabled": true,
                 "fetch": "lazy"
+            },
+            "sync-broadcast": {
+                "enabled": true,
+                "fetch": "lazy"
             }
         }
     },

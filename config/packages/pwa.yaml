@@ -35,11 +35,12 @@ pwa:
             page_cache:
                 urls:
                 - 'app_homepage'
-                - '_api_/items{._format}_get_collection'
             offline_fallback:
                 page: 'app_homepage'
             background_sync:
-                - queue_name: 'sync-queue'
-                  regex: 'https://localhost\\:8000(\/|\/items\/.*)$'
-                  max_retention_time: 7200
-                  force_sync_fallback: false
+                - queue_name: 'items'
+                  regex: '\/items\/.*$'
+                  broadcast_channel: 'items-sync'
+                - queue_name: 'add'
+                  regex: '\/add$'
+                  broadcast_channel: 'add-item'

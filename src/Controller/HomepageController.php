@@ -16,8 +16,19 @@ class HomepageController extends AbstractController
         private readonly ItemRepository $itemRepository,
     ){}
 
-    #[Route('/', name: 'app_homepage', methods: [Request::METHOD_GET, Request::METHOD_POST])]
-    public function homepage(Request $request): Response
+    #[Route('/', name: 'app_homepage', methods: [Request::METHOD_GET])]
+    public function homepage(): Response
+    {
+        $form = $this->itemHandler->prepare();
+
+        return $this->render('homepage/index.html.twig', [
+            'form' => $form,
+            'items' => $this->itemRepository->findBy([], ['id' => 'DESC'], 50),
+        ]);
+    }
+
+    #[Route('/add', name: 'app_add_item', methods: [Request::METHOD_POST])]
+    public function addItem(Request $request): Response
     {
         $form = $this->itemHandler->prepare();
         $item = $this->itemHandler->handle($form, $request);
@@ -25,11 +36,8 @@ class HomepageController extends AbstractController
             $this->addFlash('success', 'Item added');
             return $this->redirectToRoute('app_homepage');
         }
-
-        return $this->render('homepage/index.html.twig', [
-            'form' => $form,
-            'items' => $this->itemRepository->findBy([], ['id' => 'DESC'], 50),
-        ]);
+        $this->addFlash('error', 'Item not added');
+        return $this->redirectToRoute('app_homepage');
     }
 
     #[Route('/items/{id}/toggle', name: 'app_toggle', methods: [Request::METHOD_POST])]

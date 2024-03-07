@@ -40,11 +40,6 @@
             installButton.classList.remove('hover:bg-gray-50', 'dark:hover:bg-gray-800');
             installButton.classList.add('text-white', 'bg-blue-400', 'dark:bg-blue-500', 'cursor-not-allowed', 'font-medium', 'rounded-lg', 'text-sm', 'px-5', 'py-2.5', 'text-center');
         }
-
-        const bc = new BroadcastChannel("background-sync");
-        bc.onmessage = (event) => {
-            console.log(event.data);
-        };
     </script>
 {% endblock %}
 {% block body %}
@@ -63,7 +58,37 @@
         </div>
     </section>
     <section class="bg-white dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12" {{ stimulus_controller('@pwa/connection-status') }}>
+        <div class="px-4 mx-auto max-w-screen-xl text-center px-4" {{ stimulus_controller('@pwa/sync-broadcast', {channel: 'add-item'}) }}>
+            <div
+                class="flex items-center p-4 mb-4 text-sm border rounded-lg"
+                role="alert"
+            >
+                <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                </svg>
+                <div>
+                    <span class="font-medium">Remaining requests (add item)</span>: <span {{ stimulus_target('@pwa/sync-broadcast', 'remaining') }}>0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-white dark:bg-gray-900">
+        <div class="px-4 mx-auto max-w-screen-xl text-center px-4" {{ stimulus_controller('@pwa/sync-broadcast', {channel: 'items-sync'}) }}>
+            <div
+                class="flex items-center p-4 mb-4 text-sm border rounded-lg"
+                role="alert"
+            >
+                <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                </svg>
+                <div>
+                    <span class="font-medium">Remaining requests (item modification)</span>: <span {{ stimulus_target('@pwa/sync-broadcast', 'remaining') }}>0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-white dark:bg-gray-900">
+        <div class="mx-auto max-w-screen-xl text-center px-4" {{ stimulus_controller('@pwa/connection-status') }}>
             <div
                 {{ stimulus_target('@pwa/connection-status', 'attribute') }}
                 class="flex items-center p-4 mb-4 text-sm border rounded-lg online:text-green-800 online:bg-green-50 online:dark:bg-gray-800 online:dark:text-green-400 offline:text-yellow-800 offline:bg-yellow-50 offline:dark:bg-gray-800 offline:dark:text-yellow-300"
@@ -144,12 +169,18 @@
                                             Add a new item
                                         </h2>
                                     </div>
-                                    {{ form_start(form, {attr: {class: 'max-w-sm mx-auto'}}) }}
+                                    {# {{ form_start(form, {attr: {class: 'max-w-sm mx-auto'}}) }} #}
+                                    <form
+                                        {{ stimulus_controller('@pwa/backgroundsync-form', {redirection: path('app_homepage')}) }}
+                                        action="{{ path('app_add_item') }}"
+                                        method="post"
+                                        class="max-w-sm mx-auto"
+                                    >
                                     <div class="mb-5">
                                         {{ form_label(form.name, null, {label_attr: {class: 'block mb-2 text-sm font-medium text-gray-900 dark:text-white'}}) }}
                                         {{ form_widget(form.name, {attr: {class: 'block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'}}) }}
                                     </div>
-                                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    <button {{ stimulus_action('@pwa/backgroundsync-form', 'send') }} type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                         Add
                                     </button>
                                     <button {{ stimulus_action('modal', 'close')}} class="text-lg absolute top-5 right-5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-4 h-4 ms-auto dark:hover:bg-gray-600 dark:hover:text-white">
