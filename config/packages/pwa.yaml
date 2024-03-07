@@ -40,6 +40,6 @@ pwa:
                 page: 'app_homepage'
             background_sync:
                 - queue_name: 'sync-queue'
-                  regex: '/^(\/|\/items\/.*)$/'
+                  regex: 'https://localhost\\:8000(\/|\/items\/.*)$'
                   max_retention_time: 7200
                   force_sync_callback: true

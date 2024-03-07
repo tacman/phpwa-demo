@@ -3,7 +3,11 @@
         "@spomky-labs/pwa-bundle": {
             "connection-status": {
                 "enabled": true,
-                "fetch": "eager"
+                "fetch": "lazy"
+            },
+            "backgroundsync-form": {
+                "enabled": true,
+                "fetch": "lazy"
             }
         }
     },
