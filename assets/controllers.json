@@ -12,6 +12,10 @@
             "sync-broadcast": {
                 "enabled": true,
                 "fetch": "lazy"
+            },
+            "prefetch-on-demand": {
+                "enabled": true,
+                "fetch": "lazy"
             }
         }
     },

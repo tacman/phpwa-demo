@@ -33,6 +33,10 @@ pwa:
         skip_waiting: true
         workbox:
             page_cache:
+                strategy: 'staleWhileRevalidate'
+                broadcast: true
+                broadcast_headers:
+                    - 'X-App-Cache'
                 urls:
                 - 'app_homepage'
             offline_fallback:

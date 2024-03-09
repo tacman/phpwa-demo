@@ -21,10 +21,14 @@ class HomepageController extends AbstractController
     {
         $form = $this->itemHandler->prepare();
 
-        return $this->render('homepage/index.html.twig', [
+        $response = $this->render('homepage/index.html.twig', [
             'form' => $form,
             'items' => $this->itemRepository->findBy([], ['id' => 'DESC'], 50),
         ]);
+        //Used to test the Broacast system
+        $response->headers->set('X-App-Cache', random_int(0,5) === 0 ? 'foo' : 'bar');
+
+        return $response;
     }
 
     #[Route('/add', name: 'app_add_item', methods: [Request::METHOD_POST])]
