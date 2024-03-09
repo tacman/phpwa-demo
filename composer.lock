@@ -2236,12 +2236,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spomky-Labs/pwa-bundle.git",
-                "reference": "6556b2a1ab7fb7e8eb6715fa287e82461f67845d"
+                "reference": "d0515837fca769e4cad409b667d430f043950762"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spomky-Labs/pwa-bundle/zipball/6556b2a1ab7fb7e8eb6715fa287e82461f67845d",
-                "reference": "6556b2a1ab7fb7e8eb6715fa287e82461f67845d",
+                "url": "https://api.github.com/repos/Spomky-Labs/pwa-bundle/zipball/d0515837fca769e4cad409b667d430f043950762",
+                "reference": "d0515837fca769e4cad409b667d430f043950762",
                 "shasum": ""
             },
             "require": {
@@ -2337,11 +2337,11 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2024-03-06T11:49:59+00:00"
+            "time": "2024-03-09T08:31:33+00:00"
         },
         {
             "name": "survos/core-bundle",
-            "version": "1.5.175",
+            "version": "1.5.181",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosCoreBundle.git",
@@ -2417,7 +2417,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/SurvosCoreBundle/issues",
-                "source": "https://github.com/survos/SurvosCoreBundle/tree/1.5.175"
+                "source": "https://github.com/survos/SurvosCoreBundle/tree/1.5.181"
             },
             "funding": [
                 {
@@ -2429,7 +2429,7 @@
         },
         {
             "name": "survos/deployment-bundle",
-            "version": "1.5.175",
+            "version": "1.5.181",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosDeploymentBundle.git",
@@ -2475,7 +2475,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/SurvosDeploymentBundle/issues",
-                "source": "https://github.com/survos/SurvosDeploymentBundle/tree/1.5.175"
+                "source": "https://github.com/survos/SurvosDeploymentBundle/tree/1.5.181"
             },
             "funding": [
                 {
@@ -2487,23 +2487,23 @@
         },
         {
             "name": "survos/pwa-extra-bundle",
-            "version": "1.5.175",
+            "version": "1.5.181",
             "source": {
                 "type": "git",
                 "url": "https://github.com/survos/SurvosPwaExtraBundle.git",
-                "reference": "51a42aef0b270502a635eea0fc0598d1d4d6054b"
+                "reference": "ba3645f0bf4b109ea0dce8efa5e6ef66c8c0c3d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/survos/SurvosPwaExtraBundle/zipball/51a42aef0b270502a635eea0fc0598d1d4d6054b",
-                "reference": "51a42aef0b270502a635eea0fc0598d1d4d6054b",
+                "url": "https://api.github.com/repos/survos/SurvosPwaExtraBundle/zipball/ba3645f0bf4b109ea0dce8efa5e6ef66c8c0c3d7",
+                "reference": "ba3645f0bf4b109ea0dce8efa5e6ef66c8c0c3d7",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1",
                 "spomky-labs/pwa-bundle": "^1.1",
-                "survos/core-bundle": "^1.5.175",
-                "symfony/asset-mapper": "7.0.3",
+                "survos/core-bundle": "^1.5.181",
+                "symfony/asset-mapper": "^6.4 || ^7.0",
                 "symfony/config": "^6.4 || ^7.0",
                 "symfony/dependency-injection": "^6.4 || ^7.0",
                 "symfony/http-kernel": "^6.4 || ^7.0",
@@ -2536,7 +2536,7 @@
             ],
             "support": {
                 "issues": "https://github.com/survos/SurvosPwaExtraBundle/issues",
-                "source": "https://github.com/survos/SurvosPwaExtraBundle/tree/1.5.175"
+                "source": "https://github.com/survos/SurvosPwaExtraBundle/tree/1.5.181"
             },
             "funding": [
                 {
@@ -2544,7 +2544,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-06T15:15:47+00:00"
+            "time": "2024-03-09T14:29:46+00:00"
         },
         {
             "name": "symfony/asset",
