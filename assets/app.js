@@ -34,3 +34,5 @@ function disableInAppInstallPrompt() {
   installPrompt = null;
   installButton.setAttribute("hidden", "");
 }
+import 'flowbite';
+import 'flowbite/dist/flowbite.min.css';

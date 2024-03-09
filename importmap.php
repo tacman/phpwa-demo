@@ -61,4 +61,23 @@ return [
         'version' => '1.11.3',
         'type' => 'css',
     ],
+    'flowbite' => [
+        'version' => '2.3.0',
+    ],
+    '@popperjs/core' => [
+        'version' => '2.11.8',
+    ],
+    'flowbite/dist/flowbite.min.css' => [
+        'version' => '2.3.0',
+        'type' => 'css',
+    ],
+    '@hotwired/turbo' => [
+        'version' => '7.3.0',
+    ],
+    'babel-runtime/core-js/promise' => [
+        'version' => '6.26.0',
+    ],
+    'core-js/library/fn/promise' => [
+        'version' => '2.6.12',
+    ],
 ];

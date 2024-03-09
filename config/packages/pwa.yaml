@@ -5,14 +5,14 @@ pwa:
         background_color: "#c026d3"
         theme_color: "#c026d3"
         name: 'Simple TODO App'
-        short_name: 'todo'
+        short_name: 'Todo App'
         description: 'A simple TODO application build using Symfony and PHPWA'
         orientation: "any"
         display: "standalone"
         scope: "/"
         display_override: ['fullscreen', 'minimal-ui', 'window-controls-overlay']
         id: "/"
-        start_url: "./"
+        start_url: "/"
         icons:
             - src: "images/todo.svg"
               sizes: "any"
@@ -24,12 +24,27 @@ pwa:
         edge_side_panel:
             preferred_width: 280
         widgets: []
+        related_applications:
+            - platform: "webapp"
+              url: "https://localhost/site.webmanifest"
     serviceworker:
         enabled: true
         src: "sw.js"
         skip_waiting: true
         workbox:
-            warm_cache_urls:
+            page_cache:
+                strategy: 'staleWhileRevalidate'
+                broadcast: true
+                broadcast_headers:
+                    - 'X-App-Cache'
+                urls:
                 - 'app_homepage'
-                - '_api_/items{._format}_get_collection'
-            page_fallback: 'app_homepage'
+            offline_fallback:
+                page: 'app_homepage'
+            background_sync:
+                - queue_name: 'items'
+                  regex: '\/items\/.*$'
+                  broadcast_channel: 'items-sync'
+                - queue_name: 'add'
+                  regex: '\/add$'
+                  broadcast_channel: 'add-item'

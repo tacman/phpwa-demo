@@ -14,7 +14,7 @@ class ItemType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'required' => true,
-                'label' => 'Add Todo Item',
+                'label' => 'Title',
                 'attr' => [
                     'placeholder' => 'Enter a new item',
                 ],
