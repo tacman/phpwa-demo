@@ -26,25 +26,36 @@ pwa:
         widgets: []
         related_applications:
             - platform: "webapp"
-              url: "https://localhost/site.webmanifest"
+              url: "https://localhost:8000/site.webmanifest"
     serviceworker:
         enabled: true
         src: "sw.js"
         skip_waiting: true
         workbox:
-            page_cache:
-                strategy: 'staleWhileRevalidate'
-                broadcast: true
-                broadcast_headers:
-                    - 'X-App-Cache'
-                urls:
-                - 'app_homepage'
+            resource_caches:
+                - match_callback: 'navigate'
+                  max_age: 60
+                  max_entries: 30
+                  preload_urls:
+                      - 'app_homepage'
+                  strategy: 'NetworkFirst'
+                  broadcast: true
+                  range_requests: true
+                  broadcast_headers:
+                      - 'X-App-Cache'
+                - match_callback: 'startsWith: /items'
+                  strategy: 'NetworkFirst'
+                  network_timeout: 1
+                  preload_urls:
+                      - 'api_doc'
+                      - 'api_entrypoint'
+                      - '_api_/items{._format}_get_collection'
             offline_fallback:
                 page: 'app_homepage'
             background_sync:
                 - queue_name: 'items'
-                  regex: '\/items\/.*$'
+                  match_callback: 'startsWith: /items/'
                   broadcast_channel: 'items-sync'
                 - queue_name: 'add'
-                  regex: '\/add$'
+                  match_callback: 'startsWith: /add'
                   broadcast_channel: 'add-item'
