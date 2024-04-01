@@ -40,6 +40,9 @@
             "migrations/.gitignore"
         ]
     },
+    "elao/json-http-form-bundle": {
+        "version": "v3.1.0"
+    },
     "knplabs/knp-time-bundle": {
         "version": "v2.2.0"
     },

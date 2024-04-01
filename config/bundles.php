@@ -20,4 +20,5 @@ return [
     Survos\CoreBundle\SurvosCoreBundle::class => ['all' => true],
     SpomkyLabs\PwaBundle\SpomkyLabsPwaBundle::class => ['all' => true],
     Survos\DeploymentBundle\SurvosDeploymentBundle::class => ['all' => true],
+    Elao\Bundle\JsonHttpFormBundle\ElaoJsonHttpFormBundle::class => ['all' => true],
 ];
