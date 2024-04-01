@@ -18,16 +18,66 @@ return [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
+    '@symfony/stimulus-bundle' => [
+        'path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js',
+    ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
     ],
-    '@symfony/stimulus-bundle' => [
-        'path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js',
+    'moustache' => [
+        'version' => '0.0.4',
+    ],
+    'stimulus-timeago' => [
+        'version' => '4.1.0',
+    ],
+    'date-fns' => [
+        'version' => '3.3.1',
+    ],
+    '@babel/runtime/helpers/esm/typeof' => [
+        'version' => '7.24.0',
+    ],
+    '@babel/runtime/helpers/esm/createForOfIteratorHelper' => [
+        'version' => '7.24.0',
+    ],
+    '@babel/runtime/helpers/esm/assertThisInitialized' => [
+        'version' => '7.24.0',
+    ],
+    '@babel/runtime/helpers/esm/inherits' => [
+        'version' => '7.24.0',
+    ],
+    '@babel/runtime/helpers/esm/createSuper' => [
+        'version' => '7.24.0',
+    ],
+    '@babel/runtime/helpers/esm/classCallCheck' => [
+        'version' => '7.24.0',
+    ],
+    '@babel/runtime/helpers/esm/createClass' => [
+        'version' => '7.24.0',
+    ],
+    '@babel/runtime/helpers/esm/defineProperty' => [
+        'version' => '7.24.0',
+    ],
+    'bootstrap-icons/font/bootstrap-icons.min.css' => [
+        'version' => '1.11.3',
+        'type' => 'css',
+    ],
+    'flowbite' => [
+        'version' => '2.3.0',
+    ],
+    '@popperjs/core' => [
+        'version' => '2.11.8',
+    ],
+    'flowbite/dist/flowbite.min.css' => [
+        'version' => '2.3.0',
+        'type' => 'css',
     ],
     '@hotwired/turbo' => [
         'version' => '7.3.0',
     ],
-    'workbox-window' => [
-        'version' => '7.0.0',
+    'babel-runtime/core-js/promise' => [
+        'version' => '6.26.0',
+    ],
+    'core-js/library/fn/promise' => [
+        'version' => '2.6.12',
     ],
 ];

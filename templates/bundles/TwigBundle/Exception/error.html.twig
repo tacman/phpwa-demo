@@ -1,0 +1,9 @@
+{% extends 'bundles/TwigBundle/Exception/base.html.twig' %}
+
+{% block title %}{{ 'app.page.error.title'|trans }}{% endblock %}
+{% block error_image %}<img src="{{ asset('images/illustrations/error.svg') }}" alt="{{ 'app.page.error.upper_title'|trans }}" class="img-fluid">{% endblock %}
+{% block error_upper_text %}{{ 'app.page.error.upper_title'|trans }}{% endblock %}
+{% block error_message %}{{ 'app.page.error.message'|trans }}{% endblock %}
+{% block error_description %}
+    {{ 'app.page.error.description'|trans }}
+{% endblock %}

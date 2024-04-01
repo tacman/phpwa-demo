@@ -1,0 +1,7 @@
+{% extends 'bundles/TwigBundle/Exception/base.html.twig' %}
+
+{% block title %}{{ 'app.page.error.400.title'|trans }}{% endblock %}
+{% block error_image %}<img src="{{ asset('images/illustrations/400.svg') }}" alt="..." class="img-fluid">{% endblock %}
+{% block error_upper_text %}{{ 'app.page.error.400.upper_text'|trans }}{% endblock %}
+{% block error_message %}{{ 'app.page.error.400.message'|trans }}{% endblock %}
+{% block error_description %}{{ 'app.page.error.400.description'|trans }}{% endblock %}

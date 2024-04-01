@@ -1,25 +1,50 @@
 pwa:
     image_processor: 'pwa.image_processor.imagick'
-#    background_color: "#"
-#    theme_color: "#"
-#    name: 'app.name'
-#    short_name: 'app.shortname'
-#    description: 'app.description'
-    orientation: "any"
-    display: "standalone"
-    scope: "/"
-    display_override: ['fullscreen', 'minimal-ui', 'window-controls-overlay']
-    id: "/"
-    start_url: "./"
-    icons: []
-    screenshots: []
-    categories: []
-    shortcuts: []
+    manifest:
+        enabled: true
+        background_color: "#c026d3"
+        theme_color: "#c026d3"
+        name: 'Simple TODO App'
+        short_name: 'Todo App'
+        description: 'A simple TODO application build using Symfony and PHPWA'
+        orientation: "any"
+        display: "standalone"
+        scope: "/"
+        display_override: ['fullscreen', 'minimal-ui', 'window-controls-overlay']
+        id: "/"
+        start_url: "/"
+        icons:
+            - src: "images/todo.svg"
+              sizes: "any"
+        screenshots:
+            - "images/screenshot1.png"
+            - "images/screenshot2.png"
+        categories: []
+        shortcuts: []
+        edge_side_panel:
+            preferred_width: 280
+        widgets: []
+        related_applications:
+            - platform: "webapp"
+              url: "https://localhost/site.webmanifest"
     serviceworker:
+        enabled: true
         src: "sw.js"
-        warm_cache_urls:
-            - 'app_homepage'
-        offline_fallback: 'app_homepage'
-    edge_side_panel:
-        preferred_width: 280
-    widgets: []
+        skip_waiting: true
+        workbox:
+            page_cache:
+                strategy: 'staleWhileRevalidate'
+                broadcast: true
+                broadcast_headers:
+                    - 'X-App-Cache'
+                urls:
+                - 'app_homepage'
+            offline_fallback:
+                page: 'app_homepage'
+            background_sync:
+                - queue_name: 'items'
+                  regex: '\/items\/.*$'
+                  broadcast_channel: 'items-sync'
+                - queue_name: 'add'
+                  regex: '\/add$'
+                  broadcast_channel: 'add-item'

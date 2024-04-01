@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <section class="bg-white dark:bg-gray-900">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+            <div class="mx-auto max-w-screen-sm text-center">
+                {% block error_image %}<img class="mx-auto mb-4" src="{{ asset('images/error.svg') }}" alt="Error">{% endblock %}
+                <h1 class="mb-4 text-2xl font-extrabold text-primary-600 dark:text-primary-500">{% block title %}{{ status_code }}{% endblock %}</h1>
+                <p class="mb-10 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">{% block error_description %}{% endblock error_description %}</p>
+                <p class="mb-4 text-gray-500 dark:text-gray-400">{{ 'app.page.error.links.text'|trans }}</p>
+                <ul class="flex justify-center items-center space-x-4 text-gray-500 dark:text-gray-400">
+                    <li>
+                        <a href="{{ path('app_homepage') }}" class="underline hover:text-gray-900 dark:hover:text-white">
+                            {{ 'app.page.error.link.back_to_homepage.text'|trans }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -8,6 +8,8 @@ framework:
 
     #esi: true
     #fragments: true
+    asset_mapper:
+        public_prefix: '/foo/bar'
 
 when@test:
     framework:
