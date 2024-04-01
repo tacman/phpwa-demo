@@ -73,7 +73,6 @@ class HomepageController extends AbstractController
     }
 
     #[Route('/about', name: 'app_about', methods: [Request::METHOD_GET])]
-    #[PwaExtra(cacheStrategy: CacheStrategy::STRATEGY_CACHE_FIRST)]
     public function about(Request $request): Response
     {
         return $this->render('app/about.html.twig');
