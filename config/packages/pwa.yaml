@@ -37,7 +37,7 @@ pwa:
                   max_age: 60
                   max_entries: 30
                   preload_urls:
-                      - 'app_homepage'
+                      - '@homepage'
                   strategy: 'NetworkFirst'
                   broadcast: true
                   range_requests: true

@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use SpomkyLabs\PwaBundle\Attribute\PreloadUrl;
 
 class HomepageController extends AbstractController
 {
@@ -16,6 +17,9 @@ class HomepageController extends AbstractController
         private readonly ItemRepository $itemRepository,
     ){}
 
+    #[PreloadUrl(alias: 'homepage', params: ['_locale' => 'fr'])]
+    #[PreloadUrl(alias: 'homepage', params: ['_locale' => 'en'])]
+    #[PreloadUrl(alias: 'homepage', params: ['_locale' => 'it'])]
     #[Route('/', name: 'app_homepage', methods: [Request::METHOD_GET])]
     public function homepage(): Response
     {
