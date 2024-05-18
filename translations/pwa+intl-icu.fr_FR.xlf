@@ -21,6 +21,14 @@
         <source>app.start_url</source>
         <target>/fr_FR/?pwa</target>
       </trans-unit>
+      <trans-unit id="aQsSByu1" resname="app.download_success">
+        <source>app.download_success</source>
+        <target>Youpi !!!!!!</target>
+      </trans-unit>
+      <trans-unit id="aQsSByu2" resname="app.download_failure">
+        <source>app.download_failure</source>
+        <target>Ah mince !!!!!!</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

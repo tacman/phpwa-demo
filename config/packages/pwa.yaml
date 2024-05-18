@@ -1,10 +1,18 @@
 pwa:
     image_processor: 'pwa.image_processor.imagick'
+    #image_processor: 'pwa.image_processor.gd'
+    #logger: 'App\Service\PwaLogger'
 #    user_agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'
     favicons:
         enabled: true
-        src: "images/todo.svg"
+        src: "images/todo.png"
         tile_color: "#c026d3"
+#        background_color: "#c3d7f7"
+#        image_scale: 66
+#        border_radius: 50
+#        low_resolution: true
+#        safari_pinned_tab_color: "#c3d7f7"
+#        use_silhouette: true
     manifest:
         enabled: true
         public_url: '/site.{locale}.webmanifest'
@@ -20,7 +28,7 @@ pwa:
         id: "/"
         start_url: "app.start_url"
         icons:
-            - src: "images/todo.svg"
+            - src: "images/todo.png"
               sizes: "any"
         screenshots:
             - "images/screenshot1.png"
@@ -37,6 +45,13 @@ pwa:
         enabled: true
         src: "sw.js"
         skip_waiting: true
+#        background_fetch:
+#            enabled: false
+#            cache_name: 'downloads'
+#            success_url: 'download_success'
+#            success_message: 'app.download_success'
+#            progress_url: 'download_progress'
+#            failure_message: 'app.download_failure'
         workbox:
             resource_caches:
                 - match_callback: 'navigate'
