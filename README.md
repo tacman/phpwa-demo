@@ -4,10 +4,11 @@
 
 ```bash
 git clone git@github.com:tacman/phpwa-demo.git 
-git checkout tac
 cd phpwa-demo
 composer install
 bin/console tailwind:build
+bin/console d:d:c
+bin/console d:sch:update --force
 symfony server:start -d
 symfony open:local
 ```
