@@ -23,3 +23,10 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+/public/favicon.ico
+/public/favicons
+/public/workbox
+/public/site.webmanifest
+/public/site.*.webmanifest
+/public/sw.js

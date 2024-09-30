@@ -4,36 +4,17 @@ namespace App\Controller;
 
 use App\Form\ItemHandler;
 use App\Repository\ItemRepository;
-use SpomkyLabs\PwaBundle\Service\CacheStrategy;
-use Survos\PwaExtraBundle\Attribute\PwaExtra;
-use Survos\PwaExtraBundle\Service\PwaService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/{_locale<%app.supported_locales_regex%>}')]
-class HomepageController extends AbstractController
+class ItemController extends AbstractController
 {
     public function __construct(
         private readonly ItemHandler $itemHandler,
         private readonly ItemRepository $itemRepository,
     ){}
-
-    #[Route('/', name: 'app_homepage', methods: [Request::METHOD_GET])]
-    public function homepage(): Response
-    {
-        $form = $this->itemHandler->prepare();
-
-        $response = $this->render('homepage/index.html.twig', [
-            'form' => $form,
-            'items' => $this->itemRepository->findBy([], ['id' => 'DESC'], 50),
-        ]);
-        //Used to test the Broacast system
-        $response->headers->set('X-App-Cache', random_int(0,5) === 0 ? 'foo' : 'bar');
-
-        return $response;
-    }
 
     #[Route('/add', name: 'app_add_item', methods: [Request::METHOD_POST])]
     public function addItem(Request $request): Response
@@ -72,11 +53,4 @@ class HomepageController extends AbstractController
 
         return $this->redirectToRoute('app_homepage');
     }
-
-    #[Route('/about', name: 'app_about', methods: [Request::METHOD_GET])]
-    public function about(Request $request): Response
-    {
-        return $this->render('app/about.html.twig');
-    }
-
 }

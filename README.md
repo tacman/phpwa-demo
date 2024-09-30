@@ -3,15 +3,14 @@
 ## Installation
 
 ```bash
-git clone git@github.com:Spomky-Labs/phpwa-demo.git 
+git clone git@github.com:tacman/phpwa-demo.git 
+git checkout tac
 cd phpwa-demo
 composer install
 bin/console tailwind:build
 symfony server:start -d
 symfony open:local
 ```
-
-
 
 # Symfony + PWA = 💕
 

@@ -1,18 +1,24 @@
 pwa:
     image_processor: 'pwa.image_processor.imagick'
+#    user_agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'
+    favicons:
+        enabled: true
+        src: "images/todo.svg"
+        tile_color: "#c026d3"
     manifest:
         enabled: true
+        public_url: '/site.{locale}.webmanifest'
         background_color: "#c026d3"
         theme_color: "#c026d3"
-        name: 'Simple TODO App'
-        short_name: 'Todo App'
-        description: 'A simple TODO application build using Symfony and PHPWA'
+        name: 'app.name'
+        short_name: 'app.short_name'
+        description: 'app.description'
         orientation: "any"
         display: "standalone"
         scope: "/"
         display_override: ['fullscreen', 'minimal-ui', 'window-controls-overlay']
         id: "/"
-        start_url: "/"
+        start_url: "app.start_url"
         icons:
             - src: "images/todo.svg"
               sizes: "any"
@@ -37,7 +43,7 @@ pwa:
                   max_age: 60
                   max_entries: 30
                   preload_urls:
-                      - 'app_homepage'
+                      - '@static_pages'
                   strategy: 'NetworkFirst'
                   broadcast: true
                   range_requests: true
@@ -51,7 +57,10 @@ pwa:
                       - 'api_entrypoint'
                       - '_api_/items{._format}_get_collection'
             offline_fallback:
-                page: 'app_homepage'
+                page: 
+                    path: 'app_homepage'
+                    params:
+                        _locale: 'en_US'
             background_sync:
                 - queue_name: 'items'
                   match_callback: 'startsWith: /items/'
