@@ -1,13 +1,21 @@
 pwa:
     image_processor: 'pwa.image_processor.imagick'
+    #image_processor: 'pwa.image_processor.gd'
+    #logger: 'App\Service\PwaLogger'
 #    user_agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'
     favicons:
         enabled: true
-        src: "images/todo.svg"
+        src: "images/todo.png"
         tile_color: "#c026d3"
+        background_color: "#c3d7f7"
+        image_scale: 66
+        border_radius: 50
+        low_resolution: true
+        safari_pinned_tab_color: "#c3d7f7"
+        use_silhouette: true
     manifest:
         enabled: true
-        public_url: '/site.{locale}.webmanifest'
+        public_url: '/pwa/site.{locale}.webmanifest'
         background_color: "#c026d3"
         theme_color: "#c026d3"
         name: 'app.name'
@@ -20,8 +28,16 @@ pwa:
         id: "/"
         start_url: "app.start_url"
         icons:
-            - src: "images/todo.svg"
-              sizes: "any"
+            - src: "images/todo.png"
+              sizes: [48, 96, 128, 144, 192, 256, 384, 512]
+              image_scale: 90
+              purpose: 'any'
+            - src: "images/todo.png"
+              sizes: [48, 96, 128, 144, 192, 256, 384, 512]
+              background_color: "#c3d7f7"
+              image_scale: 50
+              border_radius: 25
+              purpose: 'maskable'
         screenshots:
             - "images/screenshot1.png"
             - "images/screenshot2.png"
@@ -37,6 +53,10 @@ pwa:
         enabled: true
         src: "sw.js"
         skip_waiting: true
+#        background_fetch:
+#            enabled: true
+#            cache_name: 'downloads'
+#            progress_url: 'download_progress'
         workbox:
             resource_caches:
                 - match_callback: 'navigate'
@@ -65,6 +85,10 @@ pwa:
                 - queue_name: 'items'
                   match_callback: 'startsWith: /items/'
                   broadcast_channel: 'items-sync'
+                  error_on_5xx: true
+                  expected_status_codes: [201, 204]
                 - queue_name: 'add'
                   match_callback: 'startsWith: /add'
                   broadcast_channel: 'add-item'
+                  error_on_5xx: true
+                  expected_status_codes: [201, 204]
