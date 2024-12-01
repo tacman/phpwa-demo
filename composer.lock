@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c122bcf776fa0c607a64a8f1081def9",
+    "content-hash": "1009d5380c51abccf0de7e4d6e88c986",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -5696,6 +5696,75 @@
             "time": "2024-11-29T15:09:19+00:00"
         },
         {
+            "name": "symfony/ux-leaflet-map",
+            "version": "v2.22.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/ux-leaflet-map.git",
+                "reference": "064bf89c211374b98fc7f751430a3efdc117b54d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/ux-leaflet-map/zipball/064bf89c211374b98fc7f751430a3efdc117b54d",
+                "reference": "064bf89c211374b98fc7f751430a3efdc117b54d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.3",
+                "symfony/stimulus-bundle": "^2.18.1",
+                "symfony/ux-map": "^2.19"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^6.4|^7.0"
+            },
+            "type": "symfony-ux-map-bridge",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\UX\\Map\\Bridge\\Leaflet\\": "src/"
+                },
+                "exclude-from-classmap": []
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hugo Alliaume",
+                    "email": "hugo@alliau.me"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony UX Map Leaflet Bridge",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "leaflet",
+                "map",
+                "symfony-ux"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/ux-leaflet-map/tree/v2.22.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-11-26T08:01:52+00:00"
+        },
+        {
             "name": "symfony/ux-live-component",
             "version": "v2.22.0",
             "source": {
@@ -5788,6 +5857,88 @@
                 }
             ],
             "time": "2024-11-29T15:31:04+00:00"
+        },
+        {
+            "name": "symfony/ux-map",
+            "version": "v2.22.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/ux-map.git",
+                "reference": "dab7b0791c6ae42b1fe8be45975de23a6644197e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/ux-map/zipball/dab7b0791c6ae42b1fe8be45975de23a6644197e",
+                "reference": "dab7b0791c6ae42b1fe8be45975de23a6644197e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.3",
+                "symfony/stimulus-bundle": "^2.18.1"
+            },
+            "conflict": {
+                "symfony/ux-twig-component": "<2.21"
+            },
+            "require-dev": {
+                "symfony/asset-mapper": "^6.4|^7.0",
+                "symfony/framework-bundle": "^6.4|^7.0",
+                "symfony/phpunit-bridge": "^6.4|^7.0",
+                "symfony/twig-bundle": "^6.4|^7.0",
+                "symfony/ux-twig-component": "^2.18"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "thanks": {
+                    "url": "https://github.com/symfony/ux",
+                    "name": "symfony/ux"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\UX\\Map\\": "src/"
+                },
+                "exclude-from-classmap": []
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hugo Alliaume",
+                    "email": "hugo@alliau.me"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Easily embed interactive maps in your Symfony application",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "map",
+                "maps",
+                "markers",
+                "symfony-ux"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/ux-map/tree/v2.22.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-11-26T08:01:52+00:00"
         },
         {
             "name": "symfony/ux-turbo",
