@@ -4,7 +4,6 @@ namespace App\PreloadGenerator;
 
 use SpomkyLabs\PwaBundle\CachingStrategy\PreloadUrlsGeneratorInterface;
 use SpomkyLabs\PwaBundle\Dto\Url;
-use SpomkyLabs\PwaBundle\Dto\Manifest;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 final class StaticPagesUrlPreloadGenerator implements PreloadUrlsGeneratorInterface
@@ -35,15 +34,6 @@ final class StaticPagesUrlPreloadGenerator implements PreloadUrlsGeneratorInterf
                     ]
                 );
             }
-
-            /*foreach (range(1, 10) as $i) {
-                $this->urls[] = Url::create(
-                    'download_file',
-                    [
-                        'filename' => 'page-'.$i,
-                    ]
-                );
-            }*/
         }
 
         yield from $this->urls;

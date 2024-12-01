@@ -7,27 +7,19 @@
     <body>
       <trans-unit id="pQWw280" resname="app.name">
         <source>app.name</source>
-        <target>TODO!</target>
+        <target>What PWA Can Do Today</target>
       </trans-unit>
       <trans-unit id="vQzUOUz" resname="app.short_name">
         <source>app.short_name</source>
-        <target>TODO!</target>
+        <target>PWA Today</target>
       </trans-unit>
       <trans-unit id="n7KUaOy" resname="app.description">
         <source>app.description</source>
-        <target>A simple and lightweight todo list application.</target>
+        <target>What PWA Bundle Can Do Today is a showcase of what is possible with the Progressive Web App Bundle for Symfony.\n\nLike WhatPwaCanDoToday, the app is itself a Progressive Web App which means it can be installed to the home screen of your mobile device or to your desktop.</target>
       </trans-unit>
       <trans-unit id="EsH78Fy" resname="app.start_url">
         <source>app.start_url</source>
         <target>/en_US/?pwa</target>
-      </trans-unit>
-      <trans-unit id="UdTXS39" resname="app.download_success">
-        <source>app.download_success</source>
-        <target>Youpi !!!!!!</target>
-      </trans-unit>
-      <trans-unit id="kFnSxp9" resname="app.download_failure">
-        <source>app.download_failure</source>
-        <target>Ah mince !!!!!!</target>
       </trans-unit>
     </body>
   </file>
