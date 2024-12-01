@@ -97,4 +97,10 @@ return [
     '@symfony/ux-leaflet-map' => [
         'path' => './vendor/symfony/ux-leaflet-map/assets/dist/map_controller.js',
     ],
+    'three.js' => [
+        'version' => '0.77.1',
+    ],
+    'three' => [
+        'version' => '0.77.0',
+    ],
 ];
