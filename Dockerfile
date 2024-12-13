@@ -36,6 +36,9 @@ RUN set -eux; \
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
 ###> recipes ###
+###> doctrine/doctrine-bundle ###
+RUN install-php-extensions pdo_pgsql
+###< doctrine/doctrine-bundle ###
 ###> symfony/panther ###
 # Chromium and ChromeDriver
 ENV PANTHER_NO_SANDBOX 1
