@@ -5,19 +5,13 @@ pwa:
 #    user_agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'
     favicons:
         enabled: true
-        src: "images/todo.png"
-        tile_color: "#c026d3"
-        background_color: "#c3d7f7"
-        image_scale: 66
-        border_radius: 50
-        low_resolution: true
-        safari_pinned_tab_color: "#c3d7f7"
-        use_silhouette: true
+        src: "images/pwabundlelogo.svg"
+        tile_color: "#FCFCFC"
     manifest:
         enabled: true
         public_url: '/pwa/site.{locale}.webmanifest'
-        background_color: "#c026d3"
-        theme_color: "#c026d3"
+        background_color: "#FCFCFC"
+        theme_color: "#BE202F"
         name: 'app.name'
         short_name: 'app.short_name'
         description: 'app.description'
@@ -25,70 +19,29 @@ pwa:
         display: "standalone"
         scope: "/"
         display_override: ['fullscreen', 'minimal-ui', 'window-controls-overlay']
-        id: "/"
+        id: "pwa-bundle-today"
         start_url: "app.start_url"
         icons:
-            - src: "images/todo.png"
+            - src: "images/pwabundlelogo.svg"
+              format: 'png'
               sizes: [48, 96, 128, 144, 192, 256, 384, 512]
-              image_scale: 90
               purpose: 'any'
-            - src: "images/todo.png"
+            - src: "images/pwabundlelogo.svg"
+              format: 'png'
               sizes: [48, 96, 128, 144, 192, 256, 384, 512]
-              background_color: "#c3d7f7"
               image_scale: 50
-              border_radius: 25
+              background_color: "#c3d7f7"
               purpose: 'maskable'
-        screenshots:
-            - "images/screenshot1.png"
-            - "images/screenshot2.png"
-        categories: []
+        screenshots: []
+        categories:
+            - "education"
+            - "utilities"
         shortcuts: []
         edge_side_panel:
             preferred_width: 280
         widgets: []
-        related_applications:
-            - platform: "webapp"
-              url: "https://localhost:8000/site.webmanifest"
+        related_applications: []
     serviceworker:
         enabled: true
         src: "sw.js"
         skip_waiting: true
-#        background_fetch:
-#            enabled: true
-#            cache_name: 'downloads'
-#            progress_url: 'download_progress'
-        workbox:
-            resource_caches:
-                - match_callback: 'navigate'
-                  max_age: 60
-                  max_entries: 30
-                  preload_urls:
-                      - '@static_pages'
-                  strategy: 'NetworkFirst'
-                  broadcast: true
-                  range_requests: true
-                  broadcast_headers:
-                      - 'X-App-Cache'
-                - match_callback: 'startsWith: /items'
-                  strategy: 'NetworkFirst'
-                  network_timeout: 1
-                  preload_urls:
-                      - 'api_doc'
-                      - 'api_entrypoint'
-                      - '_api_/items{._format}_get_collection'
-            offline_fallback:
-                page: 
-                    path: 'app_homepage'
-                    params:
-                        _locale: 'en_US'
-            background_sync:
-                - queue_name: 'items'
-                  match_callback: 'startsWith: /items/'
-                  broadcast_channel: 'items-sync'
-                  error_on_5xx: true
-                  expected_status_codes: [201, 204]
-                - queue_name: 'add'
-                  match_callback: 'startsWith: /add'
-                  broadcast_channel: 'add-item'
-                  error_on_5xx: true
-                  expected_status_codes: [201, 204]

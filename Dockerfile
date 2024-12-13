@@ -50,9 +50,6 @@ RUN apk add --no-cache chromium chromium-chromedriver
 #	tar -zxf geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz -C /usr/bin; \
 #	rm geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
 ###< symfony/panther ###
-###> doctrine/doctrine-bundle ###
-RUN install-php-extensions pdo_pgsql
-###< doctrine/doctrine-bundle ###
 ###< recipes ###
 
 COPY --link frankenphp/conf.d/app.ini $PHP_INI_DIR/conf.d/

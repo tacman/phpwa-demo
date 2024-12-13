@@ -6,17 +6,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="This is a simple demonstration">
         <meta name="robots" content="all" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Welcome!{% endblock %} | What PWA Bundle Can Do Today</title>
         {% block stylesheets %}
         {% endblock %}
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
+            {% cspscript %}
+                <script type="module">
+                    import hljs from 'highlight.js';
+                    document.addEventListener('DOMContentLoaded', () => {
+                        document.querySelectorAll('pre code').forEach((el) => {
+                            hljs.highlightElement(el);
+                        });
+                    });
+                </script>
+            {% endcspscript %}
         {% endblock %}
         {{ pwa(locale=app.request.locale) }}
     </head>
     <body>
     {% block content %}
+        <twig:Navbar />
         {% block body %}{% endblock %}
+        <twig:Footer />
     {% endblock %}
     </body>
 </html>

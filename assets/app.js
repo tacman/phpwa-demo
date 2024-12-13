@@ -8,3 +8,4 @@ import './bootstrap.js';
 import './styles/app.css';
 import 'flowbite';
 import 'flowbite/dist/flowbite.min.css';
+import 'highlight.js/styles/nord.min.css';

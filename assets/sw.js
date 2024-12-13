@@ -4,4 +4,3 @@
     configuration file.
     You can define here custom rules depending on your application needs.
  */
-console.log('Service Worker Loaded...');
