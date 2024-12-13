@@ -1,0 +1,9 @@
+<a {{ attributes.defaults({class: 'text-primary-600 dark:text-primary-500 hover:underline'}) }}
+    {{ attributes}}
+    href="{{ href }}"
+    {% if title is defined %}
+    title="{{ title }}"
+    {% endif %}
+>
+    {% block content %}{% endblock %}
+</a>
