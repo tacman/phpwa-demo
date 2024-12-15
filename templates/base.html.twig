@@ -11,16 +11,6 @@
         {% endblock %}
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
-            {% cspscript %}
-                <script type="module">
-                    import hljs from 'highlight.js';
-                    document.addEventListener('DOMContentLoaded', () => {
-                        document.querySelectorAll('pre code').forEach((el) => {
-                            hljs.highlightElement(el);
-                        });
-                    });
-                </script>
-            {% endcspscript %}
         {% endblock %}
         {{ pwa(locale=app.request.locale) }}
     </head>

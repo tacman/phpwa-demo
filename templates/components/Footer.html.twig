@@ -1,6 +1,6 @@
 <footer {{ attributes }} class="p-4 bg-white md:p-8 lg:p-10 dark:bg-gray-800">
     <div class="mx-auto max-w-screen-xl text-center">
-        <a href="{{ path('app_homepage') }}" class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
+        <a data-turbo-action="replace" href="{{ path('app_homepage') }}" class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
             <img class="mr-2 h-8" src="{{ asset('images/pwabundlelogo.svg') }}" alt="">
         </a>
         <p class="my-6 text-gray-500 dark:text-gray-400">
@@ -10,7 +10,7 @@
         </p>
         <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
             <li>
-                <a href="{{ path('app_information') }}" class="mr-4 hover:underline md:mr-6 ">Information</a>
+                <a data-turbo-action="replace" href="{{ path('app_information') }}" class="mr-4 hover:underline md:mr-6 ">Information</a>
             </li>
             <li>
                 <a href="https://github.com/spomky-Labs/phpwa-demo" target="_blank" rel="noopener noreferrer nofollow" class="mr-4 hover:underline md:mr-6">Bugs</a>

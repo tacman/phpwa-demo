@@ -16,6 +16,10 @@ return [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
+    'receiver' => [
+        'path' => './assets/receiver.js',
+        'entrypoint' => true,
+    ],
     '@symfony/stimulus-bundle' => [
         'path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js',
     ],
@@ -24,9 +28,6 @@ return [
     ],
     'moustache' => [
         'version' => '0.0.4',
-    ],
-    'stimulus-timeago' => [
-        'version' => '4.1.0',
     ],
     'date-fns' => [
         'version' => '3.3.1',
@@ -102,5 +103,41 @@ return [
     ],
     'three' => [
         'version' => '0.77.0',
+    ],
+    'reveal.js' => [
+        'version' => '5.1.0',
+    ],
+    'reveal.js/dist/reveal.css' => [
+        'version' => '5.1.0',
+        'type' => 'css',
+    ],
+    'reveal.js/dist/theme/white.css' => [
+        'version' => '5.1.0',
+        'type' => 'css',
+    ],
+    'reveal.js/plugin/markdown/markdown.esm.js' => [
+        'version' => '5.1.0',
+    ],
+    'reveal.js/dist/theme/serif.css' => [
+        'version' => '5.1.0',
+        'type' => 'css',
+    ],
+    'vosk' => [
+        'version' => '0.3.39',
+    ],
+    'ffi-napi' => [
+        'version' => '4.0.3',
+    ],
+    'ref-napi' => [
+        'version' => '3.0.3',
+    ],
+    'debug' => [
+        'version' => '4.3.5',
+    ],
+    'node-gyp-build' => [
+        'version' => '4.8.1',
+    ],
+    'ms' => [
+        'version' => '2.1.2',
     ],
 ];
