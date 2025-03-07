@@ -8,8 +8,14 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 final class StaticPagesUrlPreloadGenerator implements PreloadUrlsGeneratorInterface
 {
+    /**
+     * @var array<Url>|null
+     */
     private null|array $urls = null;
 
+    /**
+     * @param array{string} $locales
+     */
     public function __construct(
         #[Autowire('%kernel.enabled_locales%')]
         private readonly array $locales,
@@ -21,7 +27,7 @@ final class StaticPagesUrlPreloadGenerator implements PreloadUrlsGeneratorInterf
     }
 
     /**
-     * @return iterable<Url|string>
+     * @return iterable<Url>
      */
     public function generateUrls(): iterable
     {

@@ -10,7 +10,7 @@
                 <p class="mb-4 text-gray-500 dark:text-gray-400">{{ 'app.page.error.links.text'|trans }}</p>
                 <ul class="flex justify-center items-center space-x-4 text-gray-500 dark:text-gray-400">
                     <li>
-                        <a href="{{ path('app_homepage') }}" class="underline hover:text-gray-900 dark:hover:text-white">
+                        <a data-turbo-action="replace" href="{{ path('app_homepage') }}" class="underline hover:text-gray-900 dark:hover:text-white">
                             {{ 'app.page.error.link.back_to_homepage.text'|trans }}
                         </a>
                     </li>
