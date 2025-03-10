@@ -19,14 +19,11 @@ This application is a PWA (Progressive Web Application) built with Symfony and P
 ### With Symfony CLI
 
 1. If not already done, [install Symfony CLI](https://symfony.com/download)
-2. Create a `.env.local` file and set the `DATABASE_URL` environment variable
-3. Run `symfony console doctrine:database:create` to create the database
-4. Run `symfony console doctrine:migrations:migrate` to create the database schema
-5. Run `symfony server:ca:install` to install the TLS certificate
-6. Run `symfony server:start` to start the project
-7. Run `symfony console tailwind:build` to build the frontend assets
-8. Run `symfony open:local` to open the app in your default web browser
-9. Run `symfony server:stop` to stop the server
+2. Run `symfony server:ca:install` to install the TLS certificate
+3. Run `symfony server:start` to start the project
+4. Run `symfony console tailwind:build` to build the frontend assets
+5. Run `symfony open:local` to open the app in your default web browser
+6. Run `symfony server:stop` to stop the server
 
 ## License
 
