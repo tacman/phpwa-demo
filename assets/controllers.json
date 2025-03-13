@@ -37,6 +37,10 @@
                 "enabled": true,
                 "fetch": "eager"
             },
+            "network-information": {
+                "enabled": true,
+                "fetch": "eager"
+            },
             "prefetch-on-demand": {
                 "enabled": true,
                 "fetch": "eager"
@@ -50,6 +54,10 @@
                 "fetch": "eager"
             },
             "share": {
+                "enabled": true,
+                "fetch": "eager"
+            },
+            "speech-synthesis": {
                 "enabled": true,
                 "fetch": "eager"
             },
