@@ -15,20 +15,56 @@ class DeviceMotion
     use DefaultActionTrait;
     use ComponentToolsTrait;
 
+    /**
+     * @var array{x: null|float, y: null|float, z: null|float}
+     */
     #[LiveProp()]
-    public null|float $alpha = 30;
+    public null|array $acceleration = ['x' => null, 'y' => null, 'z' => null];
+
+    /**
+     * @var array{x: null|float, y: null|float, z: null|float}
+     */
+    #[LiveProp()]
+    public null|array $accelerationIncludingGravity = ['x' => null, 'y' => null, 'z' => null];
+
+    /**
+     * @var array{alpha: null|float, beta: null|float, gamma: null|float}
+     */
+    #[LiveProp()]
+    public null|array $rotationRate = ['alpha' => null, 'beta' => null, 'gamma' => null];
 
     #[LiveProp()]
-    public null|float $beta = 60;
+    public null|float $interval = 0;
 
-    #[LiveProp()]
-    public null|float $gamma = 90;
-
-    #[LiveListener('device:orientation')]
-    public function onDeviceOrientation(#[LiveArg] null|float $alpha, #[LiveArg] null|float $beta, #[LiveArg] null|float $gamma): void
+    /**
+     * @param array{alpha?: float, beta?: float, gamma?: float}|null $rotationRate
+     * @param array{x?: float, y?: float, z?: float}|null $acceleration
+     * @param array{x?: float, y?: float, z?: float}|null $accelerationIncludingGravity
+     */
+    #[LiveListener('pwa:device:motion')]
+    public function onDeviceMotion(#[LiveArg] null|array $acceleration, #[LiveArg] null|array $accelerationIncludingGravity, #[LiveArg] null|array $rotationRate, #[LiveArg] null|float $interval): void
     {
-        $this->alpha = $alpha;
-        $this->beta = $beta;
-        $this->gamma = $gamma;
+        $this->acceleration = $this->prepareAcceleration($acceleration ?? []);
+        $this->accelerationIncludingGravity = $this->prepareAcceleration($accelerationIncludingGravity ?? []);
+        $this->rotationRate = $this->prepareRotationRate($rotationRate ?? []);
+        $this->interval = $interval;
+    }
+
+    /**
+     * @param array{x?: float, y?: float, z?: float} $acceleration
+     * @return array{x: null|float, y: null|float, z: null|float}
+     */
+    private function prepareAcceleration(array $acceleration): array
+    {
+        return ['x' => $acceleration['x'] ?? null, 'y' => $acceleration['y'] ?? null, 'z' => $acceleration['z'] ?? null];
+    }
+
+    /**
+     * @param array{alpha?: float, beta?: float, gamma?: float} $rotationRate
+     * @return array{alpha: null|float, beta: null|float, gamma: null|float}
+     */
+    private function prepareRotationRate(array $rotationRate): array
+    {
+        return ['alpha' => $rotationRate['alpha'] ?? null, 'beta' => $rotationRate['beta'] ?? null, 'gamma' => $rotationRate['gamma'] ?? null];
     }
 }

@@ -36,4 +36,3 @@ function disableInAppInstallPrompt() {
 }
 import 'flowbite';
 import 'flowbite/dist/flowbite.min.css';
-import 'highlight.js/styles/nord.min.css';

@@ -12,6 +12,10 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class RootController extends AbstractController
 {
+    /**
+     * @param string $defaultLocale
+     * @param array{string} $supportedLocales
+     */
     public function __construct(
         #[Autowire(param: 'app.default_locale')]
         private readonly string $defaultLocale,
