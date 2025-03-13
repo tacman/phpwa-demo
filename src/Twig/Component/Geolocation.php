@@ -24,11 +24,14 @@ class Geolocation
     #[LiveProp()]
     public float $longitude = 0.0;
 
-    #[LiveListener('geolocation:position')]
-    public function onPosition(#[LiveArg] float $latitude, #[LiveArg] float $longitude): void
+    /**
+     * @param array{coords: array{latitude: float, longitude: float}} $position
+     */
+    #[LiveListener('pwa:geolocation:position')]
+    public function onPosition(#[LiveArg] array $position): void
     {
-        $this->latitude = $latitude;
-        $this->longitude = $longitude;
+        $this->latitude = $position['coords']['latitude'];
+        $this->longitude = $position['coords']['longitude'];
         $this->zoom = 12;
     }
 }

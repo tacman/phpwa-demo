@@ -42,6 +42,14 @@ pwa:
         widgets: []
         related_applications: []
     serviceworker:
-        enabled: true
+        enabled: false
         src: "sw.js"
         skip_waiting: true
+        workbox:
+            resource_caches:
+                - match_callback: 'navigate'
+                  cache_name: 'pages'
+                  strategy: 'NetworkFirst'
+                  network_timeout: 2
+                  preload_urls:
+                      - '@pages'
