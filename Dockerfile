@@ -31,6 +31,7 @@ COPY --from=frankenphp_builder /usr/local/bin/frankenphp /usr/local/bin/frankenp
 
 # Versions
 FROM frankenphp_runner AS frankenphp_upstream
+LABEL builder=true
 
 # The different stages of this Dockerfile are meant to be built into separate images
 # https://docs.docker.com/develop/develop-images/multistage-build/#stop-at-a-specific-build-stage
@@ -39,6 +40,7 @@ FROM frankenphp_runner AS frankenphp_upstream
 
 # Base FrankenPHP image
 FROM frankenphp_upstream AS frankenphp_base
+LABEL builder=true
 
 WORKDIR /app
 
