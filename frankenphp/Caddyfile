@@ -1,5 +1,6 @@
 {
 	{$CADDY_GLOBAL_OPTIONS}
+	order coraza_waf first
 
 	frankenphp {
 		{$FRANKENPHP_CONFIG}
@@ -51,5 +52,12 @@
 	# Disable Topics tracking if not enabled explicitly: https://github.com/jkarlin/topics
 	header ?Permissions-Policy "browsing-topics=()"
 
+	handle_errors 403 {
+		header X-Blocked "true"
+		root * /etc/caddy/custom-pages
+		rewrite * /{err.status_code}.html
+		file_server
+		templates
+	}
 	php_server
 }
