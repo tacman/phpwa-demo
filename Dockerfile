@@ -67,10 +67,10 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 ###> recipes ###
 ###> symfony/panther ###
 # Chromium and ChromeDriver
-ENV PANTHER_NO_SANDBOX 1
+#ENV PANTHER_NO_SANDBOX 1
 # Not mandatory, but recommended
-ENV PANTHER_CHROME_ARGUMENTS='--disable-dev-shm-usage'
-RUN apt-get update && apt-get install -y --no-install-recommends chromium chromium-driver && rm -rf /var/lib/apt/lists/*
+#ENV PANTHER_CHROME_ARGUMENTS='--disable-dev-shm-usage'
+#RUN apt-get update && apt-get install -y --no-install-recommends chromium chromium-driver && rm -rf /var/lib/apt/lists/*
 
 # Firefox and geckodriver
 #ARG GECKODRIVER_VERSION=0.34.0
