@@ -6,11 +6,15 @@ export default class extends Controller {
   static values = {
     continuous: { type: Boolean, default: false },
     grammarString: { type: String, default: null },
-    //grammarUri: { type: String, default: null },
     grammarWeight: { type: Number, default: 1 },
     interimResults: { type: Boolean, default: false },
     lang: { type: String, default: 'en-US' },
     maxAlternatives: { type: Number, default: 1 },
+    /**
+     * Url du model VOSK à utiliser pour la reconnaissance vocale hors ligne.
+     * 
+     */
+    offline: { type: Object, default: null },
   };
   static targets = ['attributeOutput', 'contentOutput'];
 

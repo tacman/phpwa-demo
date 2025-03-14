@@ -42,14 +42,22 @@ pwa:
         widgets: []
         related_applications: []
     serviceworker:
-        enabled: false
+        enabled: true
         src: "sw.js"
         skip_waiting: true
         workbox:
+            enabled: true
             resource_caches:
+                - match_callback: 'startsWith: /videos/'
+                  cache_name: 'videos'
+                  strategy: 'CacheFirst'
                 - match_callback: 'navigate'
                   cache_name: 'pages'
                   strategy: 'NetworkFirst'
                   network_timeout: 2
                   preload_urls:
                       - '@pages'
+#        background_fetch:
+#            enabled: true
+#            success_message: 'Your download is ready!'
+#            failure_message: 'Your download failed! Please try again.'

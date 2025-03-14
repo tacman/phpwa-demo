@@ -41,7 +41,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV PANTHER_NO_SANDBOX 1
 # Not mandatory, but recommended
 ENV PANTHER_CHROME_ARGUMENTS='--disable-dev-shm-usage'
-RUN apk add --no-cache chromium chromium-chromedriver
+#RUN apk add --no-cache chromium chromium-chromedriver
 
 # Firefox and geckodriver
 #ARG GECKODRIVER_VERSION=0.29.0
