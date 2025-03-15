@@ -7,7 +7,7 @@
     <body>
       <trans-unit id="pQWw280" resname="app.name">
         <source>app.name</source>
-        <target>Ce que PWA peut faire aujourd'hui</target>
+        <target>Ce que PWA peut faire aujourd’hui</target>
       </trans-unit>
       <trans-unit id="vQzUOUz" resname="app.short_name">
         <source>app.short_name</source>
