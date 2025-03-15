@@ -39,12 +39,12 @@
         ]
     },
     "nelmio/security-bundle": {
-        "version": "3.3",
+        "version": "3.5",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
             "version": "2.4",
-            "ref": "65726efb67ff51d89de38195bc0d230fa811f64d"
+            "ref": "71045833e4f882ad9de8c95fe47efb99a1eec2f7"
         },
         "files": [
             "config/packages/nelmio_security.yaml"
@@ -63,16 +63,16 @@
         ]
     },
     "phpunit/phpunit": {
-        "version": "9.6",
+        "version": "12.0",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
-            "version": "9.6",
-            "ref": "7364a21d87e658eb363c5020c072ecfdc12e2326"
+            "version": "10.0",
+            "ref": "b786e93f0b38027289867faca488b8c511436fe0"
         },
         "files": [
             ".env.test",
-            "phpunit.xml.dist",
+            "phpunit.dist.xml",
             "tests/bootstrap.php"
         ]
     },
@@ -83,12 +83,12 @@
         "version": "1.1.x-dev"
     },
     "symfony/asset-mapper": {
-        "version": "7.0",
+        "version": "7.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
             "version": "6.4",
-            "ref": "6c28c471640cc2c6e60812ebcb961c526ef8997f"
+            "ref": "5ad1308aa756d58f999ffbe1540d1189f5d7d14a"
         },
         "files": [
             "assets/app.js",
@@ -98,12 +98,12 @@
         ]
     },
     "symfony/console": {
-        "version": "7.0",
+        "version": "7.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
             "version": "5.3",
-            "ref": "da0c8be8157600ad34f10ff0c9cc91232522e047"
+            "ref": "1781ff40d8a17d87cf53f8d4cf0c8346ed2bb461"
         },
         "files": [
             "bin/console"
@@ -122,15 +122,16 @@
         ]
     },
     "symfony/flex": {
-        "version": "2.4",
+        "version": "2.5",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
-            "version": "1.0",
-            "ref": "146251ae39e06a95be0fe3d13c807bcf3938b172"
+            "version": "2.4",
+            "ref": "52e9754527a15e2b79d9a610f98185a1fe46622a"
         },
         "files": [
-            ".env"
+            ".env",
+            ".env.dev"
         ]
     },
     "symfony/form": {
@@ -146,12 +147,12 @@
         ]
     },
     "symfony/framework-bundle": {
-        "version": "7.0",
+        "version": "7.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
-            "version": "7.0",
-            "ref": "6356c19b9ae08e7763e4ba2d9ae63043efc75db5"
+            "version": "7.2",
+            "ref": "87bcf6f7c55201f345d8895deda46d2adbdbaa89"
         },
         "files": [
             "config/packages/cache.yaml",
@@ -186,12 +187,12 @@
         ]
     },
     "symfony/panther": {
-        "version": "2.1",
+        "version": "2.2",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
             "version": "1.0",
-            "ref": "292a3236e81f55b545b09b9954ab097248972ab3"
+            "ref": "bc2de681f79db177eac72d5b04c23bd59bea2b46"
         }
     },
     "symfony/phpunit-bridge": {
@@ -236,16 +237,17 @@
         ]
     },
     "symfony/stimulus-bundle": {
-        "version": "2.15",
+        "version": "2.23",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
-            "version": "2.13",
-            "ref": "6acd9ff4f7fd5626d2962109bd4ebab351d43c43"
+            "version": "2.20",
+            "ref": "3acc494b566816514a6873a89023a35440b6386d"
         },
         "files": [
             "assets/bootstrap.js",
             "assets/controllers.json",
+            "assets/controllers/csrf_protection_controller.js",
             "assets/controllers/hello_controller.js"
         ]
     },

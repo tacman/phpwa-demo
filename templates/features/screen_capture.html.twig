@@ -4,13 +4,82 @@
 
 {% block body %}
 <turbo-frame id="content">
-    <section class="bg-white dark:bg-gray-900">
+    <section
+        data-controller="pwa--screen-capture"
+        class="bg-white dark:bg-gray-900"
+    >
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 ">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
                 Screen capture
             </h2>
             <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
-                TO BE COMPLETED
+                With the Screen Capture API, you can capture the screen, stream it to a video element, and download it. <br>
+                The PWA Screen Capture controller provides a simple way to do this.
+            </p>
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                Demo
+            </h2>
+            <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                <button
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    data-action="click->pwa--screen-capture#capture"
+                    data-pwa--screen-capture-video-constraints-param="{&quot;width&quot;:{&quot;ideal&quot;:3440,&quot;max&quot;:3440},&quot;height&quot;:{&quot;ideal&quot;:1440},&quot;frameRate&quot;:{&quot;max&quot;:60}}"
+                    data-pwa--screen-capture-audio-constraints-param="true"
+                >
+                    <twig:ux:icon name="ix:video-camera-record-filled" class="w-3.5 h-3.5 me-2" fill="currentColor" />
+                    Capture now!
+                </button>
+            </p>
+            <a
+                hidden="hidden"
+                class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
+                data-pwa--screen-capture-target="download"
+                href="#" download="capture.mp4"
+            >
+                <twig:ux:icon name="fa6-solid:download" class="w-3.5 h-3.5 me-2" fill="currentColor" />
+                Download
+            </a>
+            <video
+                hidden="hidden"
+                data-pwa--screen-capture-target="destination"
+                autoplay playsinline
+            >
+            </video>
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                Code example
+            </h2>
+            {% set button = '<button
+    data-action="click->pwa--screen-capture#capture"
+>
+    Start the capture
+</button>' %}
+            <pre><code class="language-twig" data-controller="code">{{ button|escape('html')|raw }}</code></pre>
+            <p class="mt-3 mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                On compatible browsers, when the button is clicked the user will be asked to select the screen to capture. <br>
+                It can be a browser tab, a specific application or an entire screen.
+            </p>
+            {% set button = '<video
+    data-pwa--screen-capture-target="destination"
+    width="800" height="600" class="mx-auto"
+    autoplay playsinline
+>
+</video>' %}
+            <pre><code class="language-twig" data-controller="code">{{ button|escape('html')|raw }}</code></pre>
+            <p class="mt-3 mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                To show the captured screen, you can use the code above. <br>
+                The video element will be automatically displayed and updated with the captured screen.
+            </p>
+            {% set button = '<a
+    hidden="hidden"
+    data-pwa--screen-capture-target="download"
+    href="#" download="capture.mp4"
+>
+    Download the capture
+</a>' %}
+            <pre><code class="language-twig" data-controller="code">{{ button|escape('html')|raw }}</code></pre>
+            <p class="mt-3 mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                To download the captured screen, you can use the code above. <br>
+                The download link will be automatically displayed and updated with the captured screen.
             </p>
         </div>
     </section>

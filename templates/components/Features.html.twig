@@ -31,6 +31,14 @@
             </twig:Feature>
 
             <twig:Feature
+                link="{{ path('app_feature_shortcuts') }}"
+                title="Shortcuts"
+                description="Shortcuts provide quick access to pages in your app from the app icon."
+            >
+                <twig:ux:icon name="tdesign:mobile-shortcut-filled" class="mx-auto h-full text-feature" alt="Shortcuts" />
+            </twig:Feature>
+
+            <twig:Feature
                 link="{{ path('app_feature_view_transition') }}"
                 title="View Transitions"
                 description="The View Transitions API enables app-like transitions between pages."
