@@ -45,6 +45,10 @@
                 "enabled": true,
                 "fetch": "eager"
             },
+            "picture-in-picture": {
+                "enabled": true,
+                "fetch": "eager"
+            },
             "presentation": {
                 "enabled": true,
                 "fetch": "eager"
