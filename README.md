@@ -17,7 +17,8 @@ This application is a PWA (Progressive Web Application) built with Symfony and P
 
 ### With Symfony CLI
 
-If not already done, [install Symfony CLI](https://symfony.com/download)
+If not already done, [install Symfony CLI](https://symfony.com/download).
+
 You can also install the TLS certificates to have HTTPS working out of the box: `symfony server:ca:install`
 
 1. Run `git clone git@github.com:Spomky-Labs/phpwa-demo.git && cd phpwa-demo` to clone the demo and move to the created folder
