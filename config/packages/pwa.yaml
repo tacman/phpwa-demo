@@ -52,6 +52,12 @@ pwa:
             preferred_width: 280
         widgets: []
         related_applications: []
+        file_handlers:
+            - action: "app_feature_file_handling"
+              accept:
+                  "image/png": [".png"]
+                  "image/jpeg": [".jpg", ".jpeg"]
+                  "image/webm": [".webm"]
         protocol_handlers:
             - protocol: "web+pwabundle"
               placeholder: 'type'
