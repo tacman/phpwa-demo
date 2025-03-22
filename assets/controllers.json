@@ -65,7 +65,7 @@
                 "enabled": true,
                 "fetch": "eager"
             },
-            "screen-capture": {
+            "capture": {
                 "enabled": true,
                 "fetch": "eager"
             },
