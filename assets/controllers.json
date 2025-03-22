@@ -45,6 +45,10 @@
                 "enabled": true,
                 "fetch": "eager"
             },
+            "picture-in-picture": {
+                "enabled": true,
+                "fetch": "eager"
+            },
             "presentation": {
                 "enabled": true,
                 "fetch": "eager"
@@ -54,6 +58,10 @@
                 "fetch": "eager"
             },
             "share": {
+                "enabled": true,
+                "fetch": "eager"
+            },
+            "screen-capture": {
                 "enabled": true,
                 "fetch": "eager"
             },
