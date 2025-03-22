@@ -25,6 +25,10 @@
                 "enabled": true,
                 "fetch": "eager"
             },
+            "file-handling": {
+                "enabled": true,
+                "fetch": "eager"
+            },
             "fullscreen": {
                 "enabled": true,
                 "fetch": "eager"
@@ -61,7 +65,7 @@
                 "enabled": true,
                 "fetch": "eager"
             },
-            "screen-capture": {
+            "capture": {
                 "enabled": true,
                 "fetch": "eager"
             },

@@ -5,3 +5,8 @@
 [hidden] {
     display: none !important;
 }
+
+.capture {
+    isolation: isolate;
+    transform-style: flat;
+}
