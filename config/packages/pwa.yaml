@@ -7,6 +7,7 @@ pwa:
         enabled: true
         src: "images/pwabundlelogo.svg"
         tile_color: "#FCFCFC"
+        use_start_image: true
     manifest:
         enabled: true
         public_url: '/pwa/site.{locale}.webmanifest'
@@ -32,11 +33,21 @@ pwa:
               image_scale: 50
               background_color: "#c3d7f7"
               purpose: 'maskable'
-        screenshots: []
+        screenshots:
+            - src: "images/wide.png"
+              format: 'png'
+              label: "The homepage"
+            - src: "images/narrow.png"
+              format: 'png'
+              label: "The homepage"
         categories:
             - "education"
             - "utilities"
-        shortcuts: []
+        shortcuts:
+            - name: "app.features.geolocation.name"
+              short_name: "app.features.geolocation.short_name"
+              description: "app.features.geolocation.description"
+              url: 'app_feature_geolocation'
         edge_side_panel:
             preferred_width: 280
         widgets: []
