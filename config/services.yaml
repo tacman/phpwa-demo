@@ -29,3 +29,12 @@ services:
 
     App\PreloadGenerator\StaticPagesUrlPreloadGenerator:
         tags: ['spomky_labs_pwa.preload_urls_generator']
+
+
+when@test:
+    services:
+        App\Tests\NoTranslator:
+            decorates: translator
+            arguments:
+                - '@App\Tests\NoTranslator.inner'
+            public: false

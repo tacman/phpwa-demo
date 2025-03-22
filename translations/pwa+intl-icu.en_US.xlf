@@ -21,6 +21,18 @@
         <source>app.start_url</source>
         <target>/en_US/?pwa</target>
       </trans-unit>
+      <trans-unit id="rylLObw" resname="app.features.geolocation.name">
+        <source>app.features.geolocation.name</source>
+        <target>Geolocation</target>
+      </trans-unit>
+      <trans-unit id="xSmZ_c5" resname="app.features.geolocation.short_name">
+        <source>app.features.geolocation.short_name</source>
+        <target>Geolocation</target>
+      </trans-unit>
+      <trans-unit id="UB8UQvV" resname="app.features.geolocation.description">
+        <source>app.features.geolocation.description</source>
+        <target>Geolocation feature</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

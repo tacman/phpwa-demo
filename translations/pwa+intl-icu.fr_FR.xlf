@@ -7,7 +7,7 @@
     <body>
       <trans-unit id="pQWw280" resname="app.name">
         <source>app.name</source>
-        <target>Ce que PWA peut faire aujourd'hui</target>
+        <target>Ce que PWA peut faire aujourd’hui</target>
       </trans-unit>
       <trans-unit id="vQzUOUz" resname="app.short_name">
         <source>app.short_name</source>
@@ -20,6 +20,18 @@
       <trans-unit id="EsH78Fy" resname="app.start_url">
         <source>app.start_url</source>
         <target>/fr_FR/?pwa</target>
+      </trans-unit>
+      <trans-unit id="rylLObw" resname="app.features.geolocation.name">
+        <source>app.features.geolocation.name</source>
+        <target>Géolocalisation</target>
+      </trans-unit>
+      <trans-unit id="_Zbz.aD" resname="app.features.geolocation.short_name">
+        <source>app.features.geolocation.short_name</source>
+        <target>Géolocalisation</target>
+      </trans-unit>
+      <trans-unit id="UB8UQvV" resname="app.features.geolocation.description">
+        <source>app.features.geolocation.description</source>
+        <target>Fonctionnalité de géolocalisation</target>
       </trans-unit>
     </body>
   </file>

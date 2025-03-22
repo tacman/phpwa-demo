@@ -173,6 +173,10 @@
         <source>app.page.error.400.description</source>
         <target>__app.page.error.400.description</target>
       </trans-unit>
+      <trans-unit id="CKa3HAj" resname="homepage.demo">
+        <source>homepage.demo</source>
+        <target>Fonctionnalités supportées</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
