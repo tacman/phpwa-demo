@@ -15,7 +15,7 @@
       </trans-unit>
       <trans-unit id="n7KUaOy" resname="app.description">
         <source>app.description</source>
-        <target>What PWA Bundle Can Do Today est une vitrine de ce qui est possible avec le bundle Progressive Web App pour Symfony.\n\nComme WhatPwaCanDoToday, l’application est elle-même une Progressive Web App, ce qui signifie qu’elle peut être installée sur l’écran d’accueil de votre appareil mobile ou sur votre bureau.</target>
+        <target>What PWA Bundle Can Do Today est une vitrine de ce qui est possible avec le bundle Progressive Web App pour Symfony.</target>
       </trans-unit>
       <trans-unit id="EsH78Fy" resname="app.start_url">
         <source>app.start_url</source>
