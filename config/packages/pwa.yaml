@@ -8,6 +8,11 @@ pwa:
         src: "images/pwabundlelogo.svg"
         tile_color: "#FCFCFC"
         use_start_image: true
+        use_silhouette: true
+        safari_pinned_tab_color: "#FCFCFC"
+        low_resolution: true
+        monochrome: true
+        potrace: "potrace"
     manifest:
         enabled: true
         public_url: '/pwa/site.{locale}.webmanifest'
