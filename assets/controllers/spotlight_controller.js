@@ -4,7 +4,7 @@ import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
   connect() {
-    // Envoie événement au PageDown et au PageUp du clavier
+    // Send an event on PageDown or PageUp
     document.addEventListener('keydown', (event) => {
       if (event.key === 'PageDown') {
         document.getElementById('next').click();

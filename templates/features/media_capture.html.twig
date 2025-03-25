@@ -1,16 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Medio capture{% endblock %}
+{% block title %}Media capture{% endblock %}
 
 {% block body %}
 <turbo-frame id="content">
-    <section class="bg-white dark:bg-gray-900">
+    <section
+        data-controller="pwa--capture"
+        class="bg-white dark:bg-gray-900"
+    >
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 ">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                Medio capture
+                Media capture
             </h2>
             <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
-                TO BE COMPLETED
+            </p>
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                Demo
+            </h2>
+            <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                Media capture allows apps to use the camera and microphone of a device.<br>
+                    After recording a video you can play it, download it or record another one.
+            </p>
+            <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                <button
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    data-action="click->pwa--capture#media"
+                >
+                    <twig:ux:icon name="ix:video-camera-record-filled" class="w-3.5 h-3.5 me-2" fill="currentColor" />
+                    Capture now!
+                </button>
+                <button
+                    class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+                    data-action="click->pwa--capture#stop"
+                >
+                    <twig:ux:icon name="material-symbols:stop-circle-outline-rounded" class="w-3.5 h-3.5 me-2" fill="currentColor" />
+                    Stop!
+                </button>
+                <a
+                    hidden="hidden"
+                    class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
+                    data-pwa--capture-target="download"
+                    href="#" download="capture.mp4"
+                >
+                    <twig:ux:icon name="fa6-solid:download" class="w-3.5 h-3.5 me-2" fill="currentColor" />
+                    Download
+                </a>
+                <video
+                    hidden="hidden"
+                    data-pwa--capture-target="destination"
+                    autoplay playsinline
+                >
+                </video>
             </p>
         </div>
     </section>

@@ -15,11 +15,23 @@
       </trans-unit>
       <trans-unit id="n7KUaOy" resname="app.description">
         <source>app.description</source>
-        <target>What PWA Bundle Can Do Today is a showcase of what is possible with the Progressive Web App Bundle for Symfony.\n\nLike WhatPwaCanDoToday, the app is itself a Progressive Web App which means it can be installed to the home screen of your mobile device or to your desktop.</target>
+        <target>What PWA Bundle Can Do Today is a showcase of what is possible with the Progressive Web App Bundle for Symfony.</target>
       </trans-unit>
       <trans-unit id="EsH78Fy" resname="app.start_url">
         <source>app.start_url</source>
         <target>/en_US/?pwa</target>
+      </trans-unit>
+      <trans-unit id="rylLObw" resname="app.features.geolocation.name">
+        <source>app.features.geolocation.name</source>
+        <target>Geolocation</target>
+      </trans-unit>
+      <trans-unit id="xSmZ_c5" resname="app.features.geolocation.short_name">
+        <source>app.features.geolocation.short_name</source>
+        <target>Geolocation</target>
+      </trans-unit>
+      <trans-unit id="UB8UQvV" resname="app.features.geolocation.description">
+        <source>app.features.geolocation.description</source>
+        <target>Geolocation feature</target>
       </trans-unit>
     </body>
   </file>

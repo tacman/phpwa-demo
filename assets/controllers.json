@@ -25,6 +25,10 @@
                 "enabled": true,
                 "fetch": "eager"
             },
+            "file-handling": {
+                "enabled": true,
+                "fetch": "eager"
+            },
             "fullscreen": {
                 "enabled": true,
                 "fetch": "eager"
@@ -37,7 +41,15 @@
                 "enabled": true,
                 "fetch": "eager"
             },
+            "network-information": {
+                "enabled": true,
+                "fetch": "eager"
+            },
             "prefetch-on-demand": {
+                "enabled": true,
+                "fetch": "eager"
+            },
+            "picture-in-picture": {
                 "enabled": true,
                 "fetch": "eager"
             },
@@ -50,6 +62,14 @@
                 "fetch": "eager"
             },
             "share": {
+                "enabled": true,
+                "fetch": "eager"
+            },
+            "capture": {
+                "enabled": true,
+                "fetch": "eager"
+            },
+            "speech-synthesis": {
                 "enabled": true,
                 "fetch": "eager"
             },
@@ -79,6 +99,16 @@
                 "autoimport": {
                     "@symfony/ux-live-component/dist/live.min.css": true
                 }
+            }
+        },
+        "@symfony/ux-turbo": {
+            "turbo-core": {
+                "enabled": true,
+                "fetch": "eager"
+            },
+            "mercure-turbo-stream": {
+                "enabled": false,
+                "fetch": "eager"
             }
         }
     },

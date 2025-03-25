@@ -3,31 +3,80 @@
 {% block title %}Network info{% endblock %}
 
 {% block body %}
-<turbo-frame id="content">
-    <section class="bg-white dark:bg-gray-900" data-controller="network-information">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 ">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                Network info
-            </h2>
-            <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
-                Your network information is:
-            </p>
-            <dl>
-                <dt>Downlink</dt>
-                <dd data-network-information-target="downlink downlinkContent">...</dd>
-                <dt>Downlink max</dt>
-                <dd data-network-information-target="downlinkMax downlinkMaxContent">...</dd>
-                <dt>Effective connection type</dt>
-                <dd data-network-information-target="effectiveType effectiveTypeContent">...</dd>
-                <dt>RTT</dt>
-                <dd data-network-information-target="rtt rttContent">...</dd>
-                <dt>Save data</dt>
-                <dd data-network-information-target="saveData saveDataContent">...</dd>
-                <dt>Type</dt>
-                <dd data-network-information-target="type typeContent">...</dd>
-            </dl>
-
-        </div>
-    </section>
-</turbo-frame>
+    <turbo-frame id="content">
+        <section class="bg-white dark:bg-gray-900" data-controller="network-information">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 ">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                    Network info
+                </h2>
+                <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                    Your network information is:
+                </p>
+                <div class="relative overflow-x-auto">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Property
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Value
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Downlink
+                            </th>
+                            <td class="px-6 py-4">
+                                <span data-network-information-target="downlink downlinkContent">...</span>&nbsp;Mbps
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Downlink max
+                            </th>
+                            <td class="px-6 py-4">
+                                <span data-network-information-target="downlinkMax downlinkMaxContent">...</span>&nbsp;Mbps
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Effective connection type
+                            </th>
+                            <td class="px-6 py-4">
+                                <span data-network-information-target="effectiveType effectiveTypeContent">...</span>
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                RTT
+                            </th>
+                            <td class="px-6 py-4">
+                                <span data-network-information-target="rtt rttContent">...</span>
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Save data
+                            </th>
+                            <td class="px-6 py-4">
+                                <span data-network-information-target="saveData saveDataContent">...</span>
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Type
+                            </th>
+                            <td class="px-6 py-4">
+                                <span data-network-information-target="type typeContent">...</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </turbo-frame>
 {% endblock %}

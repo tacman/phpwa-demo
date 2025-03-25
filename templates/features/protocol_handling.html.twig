@@ -10,7 +10,29 @@
                 Protocol handling
             </h2>
             <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
-                TO BE COMPLETED
+                Protocol handling enables web apps to register their ability to open links with particular URL schemes, also known as protocols. <br>
+                This means that a web app can for example register itself as an app that will open links like web+foo://bar.
+                In this case, the app will register the protocol web+foo as the protocol it can handle. <br>
+                If a user chooses the web app as the default app to open links with this protocol, the web app will be opened when a link with this protocol is clicked.
+            </p>
+            <ul>
+                <li><twig:Link href="web+pwabundle://geolocation">Geolocation (web+pwabundle://geolocation)</twig:Link></li>
+                <li><twig:Link href="web+pwabundle://screen-capturing">Screen Capturing (web+pwabundle://screen-capturing)</twig:Link></li>
+            </ul>
+            {% set yaml = 'pwa:
+    manifest:
+        enabled: true
+        protocol_handlers:
+            - protocol: "web+pwabundle"
+              placeholder: "type"
+              url:
+                  path: "app_protocol_handler"
+' %}
+            <pre><code class="language-yaml" data-controller="code">{{ yaml|raw }}</code></pre>
+            <p class="mt-3 mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                This will register the protocol web+pwabundle as the protocol it can handle.
+                The final URL will be <code>https://example.com/path/?type=%s</code>.<br>
+                The placeholder %s will be replaced by the value of the link (e.g. <code>web+pwabundle://geolocation</code> or <code>web+pwabundle://screen-capturing</code>).
             </p>
         </div>
     </section>
