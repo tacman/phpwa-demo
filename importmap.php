@@ -75,6 +75,9 @@ return [
         'version' => '3.1.2',
         'type' => 'css',
     ],
+    '@hotwired/turbo' => [
+        'version' => '8.0.13',
+    ],
     'babel-runtime/core-js/promise' => [
         'version' => '6.26.0',
     ],
@@ -142,8 +145,5 @@ return [
     ],
     'core-js' => [
         'version' => '3.41.0',
-    ],
-    '@hotwired/turbo' => [
-        'version' => '7.3.0',
     ],
 ];
