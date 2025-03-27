@@ -10,6 +10,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-imagick": "*",
+        "ext-intl": "*",
         "api-platform/core": "^4.0",
         "doctrine/dbal": "^3.0|^4.0",
         "doctrine/doctrine-bundle": "^2.11",
