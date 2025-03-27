@@ -1,15 +1,15 @@
 {
-    "name": "phpwa-demo",
-    "description": "A repo, maybe get this from github",
+    "name": "pwa-demo",
+    "description": "A Symfony based project to demonstrate the use of PHPWA",
     "keywords": [
         "php",
         "symfony"
     ],
-    "repository": "https:\/\/github.com\/survos-sites\/phpwa-demo",
+    "repository": "https://github.com/spomky-labs/phpwa-demo",
     "scripts": {
         "dokku": {
-            "predeploy": "bin/console tailwind:build && bin\/console importmap:install && bin\/console asset-map:compile",
-            "postdeploy": ""
+            "predeploy": "bin/console importmap:install && bin/console asset-map:compile && bin/console  secrets:decrypt-to-local --force && bin/console doctrine:migrations:migrate -n --allow-no-migration",
+            "postdeploy": "bin/console about"
         }
     },
     "env": {
@@ -22,14 +22,14 @@
             "generator": "echo 5"
         }
     },
-    "image": "gliderlabs\/herokuish",
+    "image": "gliderlabs/herokuish",
     "addons": [
         "dokku-postgres",
         "dokku-redis"
     ],
     "buildpacks": [
         {
-            "url": "https:\/\/github.com\/heroku\/heroku-buildpack-php.git"
+            "url": "https://github.com/heroku/heroku-buildpack-php.git"
         }
     ]
 }

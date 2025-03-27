@@ -143,4 +143,7 @@ return [
     'core-js' => [
         'version' => '3.41.0',
     ],
+    '@hotwired/turbo' => [
+        'version' => '7.3.0',
+    ],
 ];
