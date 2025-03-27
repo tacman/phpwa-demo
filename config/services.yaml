@@ -8,6 +8,8 @@ parameters:
     app.default_locale: 'en-US'
     app.supported_locales: ['en_US', 'fr_FR']
     app.supported_locales_regex: 'en_US|fr_FR'
+    router.request_context.scheme: 'https'
+    asset.request_context.secure: true
 
 services:
     # default configuration for services in *this* file

@@ -36,54 +36,53 @@ return [
         'version' => '0.0.4',
     ],
     'date-fns' => [
-        'version' => '2.30.0',
+        'version' => '4.1.0',
     ],
     '@babel/runtime/helpers/esm/typeof' => [
-        'version' => '7.23.8',
+        'version' => '7.26.10',
     ],
     '@babel/runtime/helpers/esm/createForOfIteratorHelper' => [
-        'version' => '7.23.8',
+        'version' => '7.26.10',
     ],
     '@babel/runtime/helpers/esm/assertThisInitialized' => [
-        'version' => '7.23.8',
+        'version' => '7.26.10',
     ],
     '@babel/runtime/helpers/esm/inherits' => [
-        'version' => '7.23.8',
+        'version' => '7.26.10',
     ],
     '@babel/runtime/helpers/esm/createSuper' => [
-        'version' => '7.23.8',
+        'version' => '7.26.10',
     ],
     '@babel/runtime/helpers/esm/classCallCheck' => [
-        'version' => '7.23.8',
+        'version' => '7.26.10',
     ],
     '@babel/runtime/helpers/esm/createClass' => [
-        'version' => '7.23.8',
+        'version' => '7.26.10',
     ],
     '@babel/runtime/helpers/esm/defineProperty' => [
-        'version' => '7.23.8',
+        'version' => '7.26.10',
     ],
-    'bootstrap-icons/font/bootstrap-icons.min.css' => [
-        'version' => '1.11.3',
-        'type' => 'css',
+    'mustache' => [
+        'version' => '4.2.0',
     ],
     'flowbite' => [
-        'version' => '2.5.2',
+        'version' => '3.1.2',
     ],
     '@popperjs/core' => [
         'version' => '2.11.8',
     ],
     'flowbite/dist/flowbite.min.css' => [
-        'version' => '2.5.2',
+        'version' => '3.1.2',
         'type' => 'css',
     ],
-    '@hotwired/turbo' => [
-        'version' => '8.0.12',
+    'babel-runtime/core-js/promise' => [
+        'version' => '6.26.0',
     ],
     'highlight.js' => [
-        'version' => '11.10.0',
+        'version' => '11.11.1',
     ],
     'highlight.js/styles/nord.min.css' => [
-        'version' => '11.10.0',
+        'version' => '11.11.1',
         'type' => 'css',
     ],
     'leaflet' => [
@@ -97,27 +96,24 @@ return [
         'version' => '0.77.1',
     ],
     'three' => [
-        'version' => '0.171.0',
-    ],
-    'flowbite-datepicker' => [
-        'version' => '1.3.0',
+        'version' => '0.174.0',
     ],
     'reveal.js' => [
-        'version' => '5.1.0',
+        'version' => '5.2.0',
     ],
     'reveal.js/dist/reveal.css' => [
-        'version' => '5.1.0',
+        'version' => '5.2.0',
         'type' => 'css',
     ],
     'reveal.js/dist/theme/white.css' => [
-        'version' => '5.1.0',
+        'version' => '5.2.0',
         'type' => 'css',
     ],
     'reveal.js/plugin/markdown/markdown.esm.js' => [
-        'version' => '5.1.0',
+        'version' => '5.2.0',
     ],
     'reveal.js/dist/theme/serif.css' => [
-        'version' => '5.1.0',
+        'version' => '5.2.0',
         'type' => 'css',
     ],
     'vosk' => [
@@ -130,15 +126,21 @@ return [
         'version' => '3.0.3',
     ],
     'debug' => [
-        'version' => '4.3.5',
+        'version' => '4.4.0',
     ],
     'node-gyp-build' => [
-        'version' => '4.8.1',
+        'version' => '4.8.4',
     ],
     'ms' => [
-        'version' => '2.1.2',
+        'version' => '2.1.3',
     ],
-    'stimulus-timeago' => [
-        'version' => '4.1.0',
+    'flowbite-datepicker' => [
+        'version' => '1.3.2',
+    ],
+    'core-js/library/fn/promise' => [
+        'version' => '2.6.12',
+    ],
+    'core-js' => [
+        'version' => '3.41.0',
     ],
 ];

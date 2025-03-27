@@ -8,6 +8,9 @@ use function Castor\context;
 use function Castor\io;
 use function Castor\notify;
 use function Castor\run;
+use function Castor\guard_min_version;
+
+guard_min_version('v0.23.0');
 
 #[AsTask(description: 'Run mutation testing.')]
 function infect(int $minMsi = 0, int $minCoveredMsi = 0, bool $ci = false): void
@@ -240,7 +243,7 @@ function start(): void
 #[AsTask(description: 'Build the images.')]
 function build(): void
 {
-    run(['docker', 'compose', 'build', '--no-cache', '--pull']);
+    run(['sudo', 'docker', 'compose', 'build', '--no-cache', '--pull']);
 }
 
 #[AsTask(description: 'Compile the frontend.')]

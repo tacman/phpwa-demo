@@ -48,10 +48,26 @@ pwa:
               short_name: "app.features.geolocation.short_name"
               description: "app.features.geolocation.description"
               url: 'app_feature_geolocation'
+              icons:
+                  - src: "icons/location.svg"
+                    sizes: [48, 96, 128, 144, 192, 256, 384, 512]
+                    format: 'png'
         edge_side_panel:
             preferred_width: 280
         widgets: []
         related_applications: []
+        file_handlers:
+            - action: "app_feature_file_handling"
+              accept:
+                  "image/png": [".png"]
+                  "image/jpeg": [".jpg", ".jpeg"]
+                  "image/webm": [".webm"]
+        protocol_handlers:
+            - protocol: "web+pwabundle"
+              placeholder: 'type'
+              url:
+                  path: "app_protocol_handler"
+
     serviceworker:
         enabled: true
         src: "sw.js"
