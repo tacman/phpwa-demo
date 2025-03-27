@@ -36,7 +36,7 @@ return [
         'version' => '0.0.4',
     ],
     'date-fns' => [
-        'version' => '4.1.0',
+        'version' => '2.30.0',
     ],
     '@babel/runtime/helpers/esm/typeof' => [
         'version' => '7.26.10',
@@ -145,5 +145,8 @@ return [
     ],
     'core-js' => [
         'version' => '3.41.0',
+    ],
+    'stimulus-timeago' => [
+        'version' => '4.1.0',
     ],
 ];
