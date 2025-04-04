@@ -8,18 +8,30 @@ services:
       - ./:/app
       - ./frankenphp/Caddyfile:/etc/caddy/Caddyfile:ro
       - ./frankenphp/conf.d/app.dev.ini:/usr/local/etc/php/conf.d/app.dev.ini:ro
+      - ./frankenphp/certs:/etc/caddy/certs:ro
+      - ./../phpwa:/app/vendor/spomky-labs/pwa-bundle:ro
       # If you develop on Mac or Windows you can remove the vendor/ directory
       #  from the bind-mount for better performance by enabling the next line:
       #- /app/vendor
     environment:
+      SERVER_NAME: ${SERVER_NAME:-localhost, php:443}
       MERCURE_EXTRA_DIRECTIVES: demo
       # See https://xdebug.org/docs/all_settings#mode
       XDEBUG_MODE: "${XDEBUG_MODE:-off}"
+      CADDY_GLOBAL_OPTIONS: "debug"
     extra_hosts:
       # Ensure that host.docker.internal is correctly defined on Linux
       - host.docker.internal:host-gateway
     tty: true
+    network_mode: host
+#    networks:
+#      - demo_network
 
 ###> symfony/mercure-bundle ###
 ###< symfony/mercure-bundle ###
 
+#networks:
+#  demo_network:
+#    driver: host
+#    driver_opts:
+#      com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"

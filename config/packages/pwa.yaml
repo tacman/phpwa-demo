@@ -3,6 +3,10 @@ pwa:
     #image_processor: 'pwa.image_processor.gd'
     #logger: 'App\Service\PwaLogger'
 #    user_agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'
+    #native:
+    #    enabled: true
+    #    user_agent: 'Google Chrome'
+    #    header_name: 'sec-ch-ua'
     favicons:
         enabled: true
         src: "images/pwabundlelogo.svg"
@@ -74,7 +78,7 @@ pwa:
                   path: "app_protocol_handler"
 
     serviceworker:
-        enabled: true
+        enabled: false
         src: "sw.js"
         skip_waiting: true
         workbox:
