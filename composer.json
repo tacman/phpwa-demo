@@ -12,12 +12,14 @@
         "ext-imagick": "*",
         "ext-intl": "*",
         "api-platform/core": "^4.0",
-        "elao/json-http-form-bundle": "^3.1",
-        "knplabs/knp-time-bundle": "^2.2",
         "doctrine/dbal": "^3|^4",
         "doctrine/doctrine-bundle": "^2.13",
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^3.3",
+        "elao/json-http-form-bundle": "^3.1",
+        "endroid/qr-code": "^6.0",
+        "endroid/qr-code-bundle": "^6.0",
+        "knplabs/knp-time-bundle": "^2.2",
         "nelmio/cors-bundle": "^2.5",
         "nelmio/security-bundle": "^3.3",
         "phpdocumentor/reflection-docblock": "^5.3",
@@ -66,10 +68,11 @@
     },
     "config": {
         "allow-plugins": {
+            "endroid/installer": true,
             "php-http/discovery": true,
+            "phpstan/extension-installer": true,
             "symfony/flex": true,
-            "symfony/runtime": true,
-            "phpstan/extension-installer": true
+            "symfony/runtime": true
         },
         "sort-packages": true
     },
