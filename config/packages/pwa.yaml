@@ -12,7 +12,7 @@ pwa:
         src: "images/pwabundlelogo.svg"
         tile_color: "#FCFCFC"
         use_start_image: true
-        use_silhouette: true
+        use_silhouette: false
         safari_pinned_tab_color: "#FCFCFC"
         low_resolution: true
         monochrome: true
