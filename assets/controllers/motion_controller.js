@@ -4,7 +4,7 @@ import { Controller } from '@hotwired/stimulus';
 import * as THREE from 'three';
 
 export default class extends Controller {
-  static targets = ['acceleration', 'accelerationIncludingGravity', 'rotationRate', 'interval', 'canvas'];
+  static targets = ['acceleration', 'accelerationIncludingGravity', 'rotationRate', 'interval', 'canvas', 'message'];
 
   connect() {
     // Scene & camera
@@ -87,6 +87,10 @@ export default class extends Controller {
   }
 
   update({ detail }) {
+    if (detail.acceleration.x === null) {
+      this.disable();
+      return;
+    }
     this.accelerationTarget.innerHTML =
       `<strong>X:</strong> ${(detail.acceleration.x).toFixed(2)} m/s²` +
       `<br><strong>Y:</strong> ${(detail.acceleration.y).toFixed(2)} m/s²` +
@@ -127,5 +131,9 @@ export default class extends Controller {
     const b = 0;
 
     return new THREE.Color(r / 255, g / 255, b / 255);
+  }
+
+  disable = () => {
+      this.messageTarget.classList.remove('hidden');
   }
 }
