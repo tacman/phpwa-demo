@@ -37,3 +37,4 @@ function disableInAppInstallPrompt() {
 }
 import 'flowbite';
 import 'flowbite/dist/flowbite.min.css';
+import "@hotwired/hotwire-native-bridge"

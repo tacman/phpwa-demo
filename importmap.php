@@ -149,4 +149,7 @@ return [
     'stimulus-timeago' => [
         'version' => '4.1.0',
     ],
+    '@hotwired/hotwire-native-bridge' => [
+        'version' => '1.1.0',
+    ],
 ];
