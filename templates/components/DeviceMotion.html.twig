@@ -1,12 +1,20 @@
 <div{{ attributes }} class="p-6">
-    <dl data-controller="pwa--device-motion">
+    <div
+        data-controller="pwa--device-motion motion"
+        {{ stimulus_action('motion', 'update', 'pwa--device-motion:pwa:device:motion') }}
+    >
+    <dl>
         <dt class="font-medium text-gray-500 dark:text-gray-400">Acceleration</dt>
-        <dd class="text-gray-900 dark:text-white">X={{ this.acceleration.x }}, Y={{ this.acceleration.y }}, Z={{ this.acceleration.z }}</dd>
+        <dd class="text-gray-900 dark:text-white" {{ stimulus_target('motion', 'acceleration') }}>--</dd>
         <dt class="font-medium text-gray-500 dark:text-gray-400">Acceleration with gravity</dt>
-        <dd class="text-gray-900 dark:text-white">X={{ this.accelerationIncludingGravity.x }}, Y={{ this.accelerationIncludingGravity.y }}, Z={{ this.accelerationIncludingGravity.z }}</dd>
+        <dd class="text-gray-900 dark:text-white"{{ stimulus_target('motion', 'accelerationIncludingGravity') }}>--</dd>
         <dt class="font-medium text-gray-500 dark:text-gray-400">Rotation rate</dt>
-        <dd class="text-gray-900 dark:text-white">Alpha={{ this.rotationRate.alpha }}, Beta={{ this.rotationRate.beta }}, Gamma={{ this.rotationRate.gamma }}</dd>
+        <dd class="text-gray-900 dark:text-white"{{ stimulus_target('motion', 'rotationRate') }}>--</dd>
         <dt class="font-medium text-gray-500 dark:text-gray-400">Interval</dt>
-        <dd class="text-gray-900 dark:text-white">{{ this.interval }}</dd>
+        <dd class="text-gray-900 dark:text-white"{{ stimulus_target('motion', 'interval') }}>--</dd>
     </dl>
+    <canvas {{ stimulus_target('motion', 'canvas') }} id="myCanvas" class="w-full h-96">
+        Your browser does not support the HTML canvas element.
+    </canvas>
+    </div>
 </div>
