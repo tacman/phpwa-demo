@@ -1,6 +1,6 @@
 <div{{ attributes }} class="p-6">
     <div
-        data-controller="pwa--device-motion motion"
+        data-controller="motion pwa--device-motion"
         {{ stimulus_action('motion', 'update', 'pwa--device-motion:pwa:device:motion') }}
         {{ stimulus_action('motion', 'disable', 'pwa--device-motion:pwa:device:motion:unavailable') }}
     >
@@ -14,7 +14,7 @@
                 <div class="ml-3">
                     <h3 class="text-sm font-medium text-yellow-800">Not available</h3>
                     <div class="mt-2 text-sm text-yellow-700">
-                        <p>This feautre is not available on your platform or not granted.</p>
+                        <p>This feature is not available on your platform or not granted.</p>
                     </div>
                 </div>
             </div>
