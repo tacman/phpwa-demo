@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f115d34dec1fca11ee6e3fe476270abc",
+    "content-hash": "96938ae7a70b7cc086047be2823e0f8d",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1036,12 +1036,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spomky-Labs/pwa-bundle.git",
-                "reference": "29546ffa0e218f590b9223cac95f7e76fb93a625"
+                "reference": "7c1eb8f23c509a7f2c71709c886dc20ea7bbb7d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spomky-Labs/pwa-bundle/zipball/29546ffa0e218f590b9223cac95f7e76fb93a625",
-                "reference": "29546ffa0e218f590b9223cac95f7e76fb93a625",
+                "url": "https://api.github.com/repos/Spomky-Labs/pwa-bundle/zipball/7c1eb8f23c509a7f2c71709c886dc20ea7bbb7d5",
+                "reference": "7c1eb8f23c509a7f2c71709c886dc20ea7bbb7d5",
                 "shasum": ""
             },
             "require": {
@@ -1151,7 +1151,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2025-05-23T17:50:05+00:00"
+            "time": "2025-05-24T10:16:07+00:00"
         },
         {
             "name": "symfony/asset",
@@ -6609,16 +6609,16 @@
         },
         {
             "name": "symfonycasts/tailwind-bundle",
-            "version": "v0.9.0",
+            "version": "v0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SymfonyCasts/tailwind-bundle.git",
-                "reference": "408c65b9ed0a7a25e17f9f86d5d5d60bbbfcc464"
+                "reference": "380502c39bf403f772d050ff9904932040de8cf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SymfonyCasts/tailwind-bundle/zipball/408c65b9ed0a7a25e17f9f86d5d5d60bbbfcc464",
-                "reference": "408c65b9ed0a7a25e17f9f86d5d5d60bbbfcc464",
+                "url": "https://api.github.com/repos/SymfonyCasts/tailwind-bundle/zipball/380502c39bf403f772d050ff9904932040de8cf1",
+                "reference": "380502c39bf403f772d050ff9904932040de8cf1",
                 "shasum": ""
             },
             "require": {
@@ -6659,9 +6659,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SymfonyCasts/tailwind-bundle/issues",
-                "source": "https://github.com/SymfonyCasts/tailwind-bundle/tree/v0.9.0"
+                "source": "https://github.com/SymfonyCasts/tailwind-bundle/tree/v0.10.0"
             },
-            "time": "2025-03-22T13:36:15+00:00"
+            "time": "2025-04-09T15:18:46+00:00"
         },
         {
             "name": "twig/extra-bundle",
@@ -10289,16 +10289,16 @@
         },
         {
             "name": "shipmonk/dead-code-detector",
-            "version": "0.10.2",
+            "version": "0.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shipmonk-rnd/dead-code-detector.git",
-                "reference": "080f8b92fb4eda6a25d69639e9ae5cf399a2c99d"
+                "reference": "12af219888e245e9f16cd36ab5fe701f2e426a97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shipmonk-rnd/dead-code-detector/zipball/080f8b92fb4eda6a25d69639e9ae5cf399a2c99d",
-                "reference": "080f8b92fb4eda6a25d69639e9ae5cf399a2c99d",
+                "url": "https://api.github.com/repos/shipmonk-rnd/dead-code-detector/zipball/12af219888e245e9f16cd36ab5fe701f2e426a97",
+                "reference": "12af219888e245e9f16cd36ab5fe701f2e426a97",
                 "shasum": ""
             },
             "require": {
@@ -10329,7 +10329,8 @@
                 "symfony/event-dispatcher": "^5.4 || ^6.0 || ^7.0",
                 "symfony/http-kernel": "^5.4 || ^6.0 || ^7.0",
                 "symfony/routing": "^5.4 || ^6.0 || ^7.0",
-                "symfony/validator": "^5.4 || ^6.0 || ^7.0"
+                "symfony/validator": "^5.4 || ^6.0 || ^7.0",
+                "twig/twig": "^3.0"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -10357,9 +10358,9 @@
             ],
             "support": {
                 "issues": "https://github.com/shipmonk-rnd/dead-code-detector/issues",
-                "source": "https://github.com/shipmonk-rnd/dead-code-detector/tree/0.10.2"
+                "source": "https://github.com/shipmonk-rnd/dead-code-detector/tree/0.12.1"
             },
-            "time": "2025-03-28T12:09:54+00:00"
+            "time": "2025-05-20T07:02:46+00:00"
         },
         {
             "name": "staabm/phpstan-todo-by",
@@ -10483,19 +10484,20 @@
         },
         {
             "name": "struggle-for-php/sfp-phpstan-psr-log",
-            "version": "0.23.0",
+            "version": "0.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/struggle-for-php/sfp-phpstan-psr-log.git",
-                "reference": "92a1d2c0b7c2d19c057f2fa6f20adef50f3bf902"
+                "reference": "3ffcc02668195e046518b4e7e50241e0a8e11f35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/struggle-for-php/sfp-phpstan-psr-log/zipball/92a1d2c0b7c2d19c057f2fa6f20adef50f3bf902",
-                "reference": "92a1d2c0b7c2d19c057f2fa6f20adef50f3bf902",
+                "url": "https://api.github.com/repos/struggle-for-php/sfp-phpstan-psr-log/zipball/3ffcc02668195e046518b4e7e50241e0a8e11f35",
+                "reference": "3ffcc02668195e046518b4e7e50241e0a8e11f35",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "php": "^7.2.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
                 "phpstan/phpstan": "^1.12 || ^2.0",
                 "struggle-for-php/sfp-stubs-psr-log": "^1.0.1 || ^2 || ^3.0.1"
@@ -10513,6 +10515,9 @@
                 "squizlabs/php_codesniffer": "^3.7",
                 "vimeo/psalm": "^4 || ^5.26"
             },
+            "bin": [
+                "bin/phpstan-type-mapping-from-bigquery"
+            ],
             "type": "phpstan-extension",
             "extra": {
                 "phpstan": {
@@ -10541,9 +10546,9 @@
             ],
             "support": {
                 "issues": "https://github.com/struggle-for-php/sfp-phpstan-psr-log/issues",
-                "source": "https://github.com/struggle-for-php/sfp-phpstan-psr-log/tree/0.23.0"
+                "source": "https://github.com/struggle-for-php/sfp-phpstan-psr-log/tree/0.24.0"
             },
-            "time": "2024-11-11T12:09:49+00:00"
+            "time": "2025-04-24T13:53:54+00:00"
         },
         {
             "name": "struggle-for-php/sfp-stubs-psr-log",
