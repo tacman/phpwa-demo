@@ -4,14 +4,16 @@
 
 {% block body %}
 <turbo-frame id="content">
-    <section class="bg-white dark:bg-gray-900">
+    <section
+        class="bg-white dark:bg-gray-900"
+    >
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 ">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
                 Installation
             </h2>
             <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
                 Progressive Web Apps can be installed to the home screen on mobile devices and desktop on laptops and desktop computers.<br>
-                The bundle provides a Symfony UX Controller to ease the use of this feature.
+                The bundle provides a Stimulus Controller to ease the use of this feature.
             </p>
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
                 Demo
@@ -19,7 +21,6 @@
 {% set button = '<button
     hidden
     data-controller="pwa--install"
-    data-pwa--install-target="install"
     data-action="click->pwa--install#install"
 >
     Install this app
@@ -32,9 +33,8 @@
             </p>
             <button id="install"
                 hidden
-                data-controller="pwa--install"
-                data-pwa--install-target="install"
-                data-action="click->pwa--install#install"
+                data-controller="install-status pwa--install"
+                data-action="pwa--install:not-installed->install-status#notInstalled pwa--install:installed->install-status#installed click->pwa--install#install"
                 class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800"
             >
                 Install this app

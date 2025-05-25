@@ -3,16 +3,116 @@
 {% block title %}Background Sync API{% endblock %}
 
 {% block body %}
-<turbo-frame id="content">
-    <section class="bg-white dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 ">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                Background Sync API
-            </h2>
-            <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
-                TO BE COMPLETED
-            </p>
-        </div>
-    </section>
-</turbo-frame>
+    <turbo-frame id="content">
+        <section class="bg-white dark:bg-gray-900">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 ">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                    Background Sync API
+                </h2>
+                <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                    The Background Sync API allows you to send requests even when offline. The requests are queued and sent when the user comes back online. <br>
+                    With the configuration below, all requests starting with <code>/form</code> will be queued and sent when the user comes back online.
+                    The queue name should be unique. <br>
+                    The method used to send the requests can be changed. This can be useful e.g. to separate POST and PUT requests with different retention times.
+                </p>
+
+                {% set yaml = 'pwa:
+    serviceworker:
+        enabled: true
+        workbox:
+            enabled: true
+            background_sync:
+                - queue_name: \'form\'
+                  match_callback: \'startsWith: /form\'
+                  method: POST
+                  max_retention_time: 7_200 # 5 days in minutes
+                  force_sync_fallback: true #Optional
+                  broadcast_channel: \'form-list\'' %}
+                <pre><code class="language-yaml" data-controller="code">{{ yaml|raw }}</code></pre>
+                <p class="my-4 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                    Then in your templates, you can use the Stimulus Controller <code>@pwa/backgroundsync-form</code> that will manage the request for you.
+                </p>
+                {% set html = '<form {{ stimulus_controller(\'@pwa/backgroundsync-form\') }} method="post">
+    ...
+    <button {{ stimulus_action(\'@pwa/backgroundsync-form\', \'send\')}} type="submit">
+        Send!
+    </button>
+</form>' %}
+                <pre><code class="language-html" data-controller="code">{{ html|escape('html')|raw }}</code></pre>
+                <p class="my-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                    When the broadcast channel is set, the number of requests in the queue can be known: an event is sent. <br>
+                    Also, the queue can be replayed on-demand. <br>
+                    The channel shall be the same as the one used in the configuration.
+                </p>
+                <section class="mt-8 bg-white dark:bg-gray-900">
+                    <div
+                        class="px-4 mx-auto max-w-screen-xl text-center px-4"
+                        data-controller="bgs-queue"
+                        data-bgs-queue-channel-value="form-list"
+                    >
+                        <div
+                            class="flex items-center p-4 mb-4 text-sm border rounded-lg"
+                            role="alert"
+                        >
+                            <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                            </svg>
+                            <div>
+                                <span class="font-medium">Number of requests in the queue</span>: <span data-bgs-queue-target="output">--</span>
+                            </div>
+                            <button
+                                {{ stimulus_action('bgs-queue', 'replay') }}
+                                title="Try to replay the queued requests. Useful when the application is online to force immediate sending of the requests."
+                                class="ml-4  text-xs text-white bg-[#FF9119] hover:bg-[#FF9119]/80 focus:ring-4 focus:outline-none focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 me-2 mb-2"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="m23 14l-4.4-3.3l1.2-1.6l.928.696A9 9 0 1 0 12 21a9 9 0 0 0 8.252-5.4l.4-.917l1.833.801l-.4.916A11 11 0 0 1 12 23C5.925 23 1 18.075 1 12S5.925 1 12 1s11 4.925 11 11zm-6.197-2L9.5 16.869V7.13z"/></svg>
+                                &nbsp;
+                                Replay
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <p class="my-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                    Please go offline and send a message. You will see that the message is placed in a queue.
+                    It will be sent when you come back online.
+                </p>
+                <form
+                    data-controller="pwa--backgroundsync-form"
+                    action="{{ path('app_feature_background_sync_post') }}"
+                    method="post"
+                    class="max-w-sm mx-auto"
+                >
+                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select your country</label>
+                    <select
+                        id="countries"
+                        name="country"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                        <option value="usa">United States</option>
+                        <option value="ca">Canada</option>
+                        <option value="fr">France</option>
+                        <option value="de">Germany</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="4"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Leave a comment..."
+                    ></textarea>
+
+                    <button
+                        data-action="pwa--backgroundsync-form#send"
+                        type="submit"
+                        class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800"
+                    >
+                        Send!
+                    </button>
+                </form>
+            </div>
+        </section>
+    </turbo-frame>
 {% endblock %}

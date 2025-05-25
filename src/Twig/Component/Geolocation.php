@@ -27,7 +27,7 @@ class Geolocation
     /**
      * @param array{coords: array{latitude: float, longitude: float}} $position
      */
-    #[LiveListener('pwa:geolocation:position')]
+    #[LiveListener('position')]
     public function onPosition(#[LiveArg] array $position): void
     {
         $this->latitude = $position['coords']['latitude'];
