@@ -83,6 +83,11 @@ pwa:
         skip_waiting: true
         workbox:
             enabled: true
+            offline_fallback:
+                page:
+                    path: 'app_homepage'
+                    params:
+                        _locale: 'en_US'
             resource_caches:
                 - match_callback: 'startsWith: /videos/'
                   cache_name: 'videos'

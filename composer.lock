@@ -1036,12 +1036,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spomky-Labs/pwa-bundle.git",
-                "reference": "7c1eb8f23c509a7f2c71709c886dc20ea7bbb7d5"
+                "reference": "0bd884acba008053e93092fe89dd55af1eca9cd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spomky-Labs/pwa-bundle/zipball/7c1eb8f23c509a7f2c71709c886dc20ea7bbb7d5",
-                "reference": "7c1eb8f23c509a7f2c71709c886dc20ea7bbb7d5",
+                "url": "https://api.github.com/repos/Spomky-Labs/pwa-bundle/zipball/0bd884acba008053e93092fe89dd55af1eca9cd1",
+                "reference": "0bd884acba008053e93092fe89dd55af1eca9cd1",
                 "shasum": ""
             },
             "require": {
@@ -1151,7 +1151,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2025-05-24T10:16:07+00:00"
+            "time": "2025-05-25T19:53:34+00:00"
         },
         {
             "name": "symfony/asset",
