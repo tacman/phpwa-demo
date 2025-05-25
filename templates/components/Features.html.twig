@@ -112,6 +112,7 @@
             </twig:Feature>
 
             <twig:Feature
+                available="true"
                 link="{{ path('app_feature_contact_picker') }}"
                 title="Contact picker"
                 description="The Contact Picker API allows web apps to select the user's contacts after permission has been granted."
@@ -195,6 +196,7 @@
             </twig:Feature>
 
             <twig:Feature
+                available="true"
                 link="{{ path('app_feature_background_sync') }}"
                 title="Background Sync API"
                 description="The Background Sync API enables web apps to defer tasks when it's offline so they can be run when the network connection is restored."
@@ -327,6 +329,24 @@
                 description="The Presentation API enables web apps to display content on external screens."
             >
                 <twig:ux:icon name="ri:presentation-fill" class="mx-auto h-full text-feature" alt="presentation" />
+            </twig:Feature>
+
+            <twig:Feature
+                available="true"
+                link="{{ path('app_feature_battery') }}"
+                title="Battery"
+                description="The Battery API provides information about the battery status of the device."
+            >
+                <twig:ux:icon name="game-icons:battery-50" class="mx-auto h-full text-feature" alt="battery" />
+            </twig:Feature>
+
+            <twig:Feature
+                available="true"
+                link="{{ path('app_feature_badge') }}"
+                title="Badge"
+                description="The Badge API allows web apps to display a badge on the home screen icon."
+            >
+                <twig:ux:icon name="fluent:comment-badge-16-regular" class="mx-auto h-full text-feature" alt="badge" />
             </twig:Feature>
         </div>
     </div>

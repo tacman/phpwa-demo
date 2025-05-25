@@ -5,7 +5,7 @@
 {% block body %}
 <turbo-frame id="content">
     <section
-        data-controller="pwa--capture"
+        data-controller="capture pwa--capture"
         class="bg-white dark:bg-gray-900"
     >
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 ">
@@ -21,6 +21,7 @@
             </h2>
             <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
                 <button
+                    data-capture-target="startButton"
                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     data-action="click->pwa--capture#capture"
                     data-pwa--capture-video-constraints-param="{&quot;width&quot;:{&quot;ideal&quot;:3440,&quot;max&quot;:3440},&quot;height&quot;:{&quot;ideal&quot;:1440},&quot;frameRate&quot;:{&quot;max&quot;:60}}"
@@ -30,6 +31,8 @@
                     Capture now!
                 </button>
                 <button
+                    hidden
+                    data-capture-target="stopButton"
                     class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
                     data-action="click->pwa--capture#stop"
                 >
@@ -38,17 +41,17 @@
                 </button>
             </p>
             <a
-                hidden="hidden"
+                hidden
                 class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
-                data-pwa--capture-target="download"
+                data-capture-target="downloadButton"
                 href="#" download="capture.mp4"
             >
                 <twig:ux:icon name="fa6-solid:download" class="w-3.5 h-3.5 me-2" fill="currentColor" />
                 Download
             </a>
             <video
-                hidden="hidden"
-                data-pwa--capture-target="destination"
+                hidden
+                data-capture-target="destination"
                 autoplay playsinline
             >
             </video>
