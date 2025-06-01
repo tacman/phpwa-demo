@@ -2,24 +2,116 @@
 
 {% block title %}Barcode detection{% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script type="module">
+        const startButton = document.getElementById('start');
+        const stopButton = document.getElementById('stop');
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const img = document.getElementById('snapshot');
+        let media = null;
+
+        startButton.addEventListener('click', async () => {
+            media = await navigator.mediaDevices.getUserMedia({
+                video: { facingMode: "environment" },
+                audio: false
+            });
+            video.srcObject = media;
+        });
+        stopButton.addEventListener('click', async () => {
+            if (media !== null) {
+                media.getTracks().forEach(track => track.stop());
+                media = null;
+                video.srcObject = null;
+            }
+        });
+
+        const ctx = canvas.getContext('2d');
+        function updateImage() {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            ctx.drawImage(video, 0, 0);
+            img.src = canvas.toDataURL('image/png');
+            img.click();
+        }
+
+        setInterval(updateImage, 200);
+
+        function drawDetections(barcodes) {
+            for (const barcode of barcodes) {
+                const { cornerPoints, format, rawValue } = barcode;
+
+                if (cornerPoints.length >= 4) {
+                    ctx.strokeStyle = 'lime';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(cornerPoints[0].x, cornerPoints[0].y);
+                    for (let i = 1; i < cornerPoints.length; i++) {
+                        ctx.lineTo(cornerPoints[i].x, cornerPoints[i].y);
+                    }
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+
+                ctx.fillStyle = 'red';
+                for (const point of cornerPoints) {
+                    ctx.beginPath();
+                    ctx.arc(point.x, point.y, 3, 0, 2 * Math.PI);
+                    ctx.fill();
+                }
+
+                ctx.fillStyle = 'yellow';
+                ctx.font = '16px sans-serif';
+                ctx.fillText(rawValue, cornerPoints[0].x, cornerPoints[0].y - 5);
+            }
+        }
+
+        document.addEventListener('pwa--barcode-detection:detected', ({detail: barcodes}) => {
+            if (barcodes.length !== 0) {
+                drawDetections(barcodes);
+            }
+        });
+        document.addEventListener('pwa--barcode-detection:detected', ({detail: barcodes}) => {
+            if (barcodes.length !== 0) {
+                drawDetections(barcodes);
+            }
+        });
+    </script>
+{% endblock %}
+
 {% block body %}
-<turbo-frame id="content">
-    <section class="bg-white dark:bg-gray-900" data-controller="pwa--barcode-detection capture pwa--capture">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 ">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-                Barcode detection
-            </h2>
-            <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
-                Barcode detection
-            </p>
-            <video
-                data-capture-target="destination"
-                data-pwa--barcode-detection-target="image"
-                autoplay playsinline
-            >
-            </video>
-            <ul id="barcode-list"></ul>
-        </div>
-    </section>
-</turbo-frame>
+    <turbo-frame id="content">
+        <section class="bg-white dark:bg-gray-900" data-controller="pwa--barcode-detection">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6 ">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                    Barcode detection
+                </h2>
+                <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
+                    The Barcode Detection API is a modern browser API that allows web applications to detect barcodes, including QR codes, directly from images or video streams.
+                </p>
+                <button
+                    class="btn btn-primary"
+                    id="start"
+                >Start detection
+                </button>
+                <button
+                    class="btn btn-error"
+                    id="stop"
+                >Stop
+                </button>
+                <div id="support-alert" hidden>
+                    <div class="alert alert-error shadow-lg mb-4">
+                        <span>Your browser does not support the Barcode Detection API.</span>
+                    </div>
+                </div>
+                <video id="video" class="w-full" autoplay hidden></video>
+                <canvas id="canvas"></canvas>
+                <img
+                    hidden
+                    id="snapshot"
+                    data-action="click->pwa--barcode-detection#detect"
+                />
+        </section>
+    </turbo-frame>
 {% endblock %}

@@ -14,8 +14,8 @@ export default class extends Controller {
   }
 
   media =() => {
-    const audioId = this.audioSelectTarget.value;
-    const videoId = this.videoSelectTarget.value;
+    const audioId = this.hasAudioSelectTarget ? this.audioSelectTarget.value : null;
+    const videoId = this.hasVideoSelectTarget.value ? this.videoSelectTarget.value : null;
     const constraints = this.getConstraints();
     if (constraints.audio === true) {
       constraints.audio = { deviceId: audioId ? { exact: audioId } : undefined };
@@ -88,7 +88,32 @@ export default class extends Controller {
   populateSources = async () => {
     const devices = await navigator.mediaDevices.enumerateDevices();
 
+    this.populateAudioSources(devices);
+    this.populateVideoSources(devices);
+  }
+
+  populateAudioSources = async (devices) => {
+    if (!this.hasAudioSelectTarget) {
+      return;
+    }
     this.audioSelectTarget.innerHTML = '';
+
+    for (const device of devices) {
+      const option = document.createElement('option');
+      option.value = device.deviceId;
+      option.text = device.label || `${device.kind} (${device.deviceId})`;
+
+      if (device.kind === 'audioinput') {
+        this.audioSelectTarget.appendChild(option);
+      }
+    }
+  }
+
+  populateVideoSources = async (devices) => {
+    if (!this.hasVideoSelectTarget) {
+      return;
+    }
+
     this.videoSelectTarget.innerHTML = '';
 
     for (const device of devices) {
@@ -96,9 +121,6 @@ export default class extends Controller {
       option.value = device.deviceId;
       option.text = device.label || `${device.kind} (${device.deviceId})`;
 
-      if (device.kind === 'audioinput' && this.hasAudioSelectTarget) {
-        this.audioSelectTarget.appendChild(option);
-      }
       if (device.kind === 'videoinput' && this.hasVideoSelectTarget) {
         this.videoSelectTarget.appendChild(option);
       }

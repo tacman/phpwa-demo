@@ -13,6 +13,10 @@
                 "enabled": true,
                 "fetch": "eager"
             },
+            "barcode-detection": {
+                "enabled": true,
+                "fetch": "eager"
+            },
             "battery": {
                 "enabled": true,
                 "fetch": "eager"
