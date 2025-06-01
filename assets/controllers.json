@@ -92,6 +92,10 @@
             "wake-lock": {
                 "enabled": true,
                 "fetch": "eager"
+            },
+            "web-push": {
+                "enabled": true,
+                "fetch": "eager"
             }
         },
         "@symfony/ux-leaflet-map": {
