@@ -149,4 +149,37 @@ return [
     '@hotwired/hotwire-native-bridge' => [
         'version' => '1.1.0',
     ],
+
+
+
+    'tailwindcss' => [
+        'version' => '4.1.7',
+    ],
+    'tailwindcss/index.min.css' => [
+        'version' => '4.1.7',
+        'type' => 'css',
+    ],
+    '@fontsource/roboto' => [
+        'version' => '5.2.5',
+    ],
+    '@fontsource/poppins' => [
+        'version' => '5.2.6',
+    ],
+    '@kurkle/color' => [
+        'version' => '0.3.4',
+    ],
+    '@fontsource/poppins/index.min.css' => [
+        'version' => '5.2.6',
+        'type' => 'css',
+    ],
+    'daisyui' => [
+        'version' => '5.0.38',
+    ],
+    'daisyui/daisyui.min.css' => [
+        'version' => '5.0.38',
+        'type' => 'css',
+    ],
+    'daisyui/theme' => [
+        'version' => '5.0.38',
+    ],
 ];

@@ -249,7 +249,7 @@ function build(): void
 #[AsTask(description: 'Compile the frontend.')]
 function frontend(bool $watch = false): void
 {
-    $consoleOutput = run(['bin/console'], context: context()->withQuiet());
+    $consoleOutput = run(['bin/console'], context: context()/*->withQuiet()*/);
     $commandsToRun = [
         'assets:install' => [],
         'importmap:install' => [],

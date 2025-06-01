@@ -10,18 +10,22 @@ pwa:
     favicons:
         enabled: true
         src: "images/pwabundlelogo.svg"
+        src_dark: "images/pwabundlelogo-dark.svg"
+        background_color: "#FCFCFC"
+        background_color_dark: "#121212"
         tile_color: "#FCFCFC"
         use_start_image: true
         use_silhouette: true
         safari_pinned_tab_color: "#FCFCFC"
         low_resolution: true
-        monochrome: true
+        #monochrome: true
         potrace: "potrace"
     manifest:
         enabled: true
         public_url: '/pwa/site.{locale}.webmanifest'
         background_color: "#FCFCFC"
         theme_color: "#BE202F"
+        dark_theme_color: "#EF4444"
         name: 'app.name'
         short_name: 'app.short_name'
         description: 'app.description'

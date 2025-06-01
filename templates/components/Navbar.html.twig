@@ -3,7 +3,8 @@
         <div class="flex flex-wrap justify-between items-center">
             <div class="flex justify-start items-center">
                 <a href="{{ path('app_homepage') }}" class="flex mr-4">
-                    <img src="{{ asset('images/pwabundlelogo.svg') }}" class="mr-3 h-8" alt="PWA Logo" />
+                    <img alt="PWA Logo" class="hidden mr-3 h-8 dark:inline" src="{{ asset('images/pwabundlelogo-dark.svg') }}" />
+                    <img alt="PWA Logo" class="mr-3 h-8 dark:hidden" src="{{ asset('images/pwabundlelogo.svg') }}" />
                 </a>
             </div>
         </div>
