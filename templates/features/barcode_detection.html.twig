@@ -10,21 +10,24 @@
         const video = document.getElementById('video');
         const canvas = document.getElementById('canvas');
         const img = document.getElementById('snapshot');
+        const alert = document.getElementById('support-alert');
         let media = null;
+        let intervalId = null
 
         startButton.addEventListener('click', async () => {
-            media = await navigator.mediaDevices.getUserMedia({
-                video: { facingMode: "environment" },
-                audio: false
-            });
+            media = await navigator.mediaDevices.getUserMedia({video: { facingMode: "environment" }, audio: false});
             video.srcObject = media;
+            intervalId = setInterval(updateImage, 200);
+            canvas.removeAttribute('hidden');
         });
         stopButton.addEventListener('click', async () => {
+            clearInterval(intervalId);
             if (media !== null) {
                 media.getTracks().forEach(track => track.stop());
                 media = null;
                 video.srcObject = null;
             }
+            canvas.setAttribute('hidden', '');
         });
 
         const ctx = canvas.getContext('2d');
@@ -35,8 +38,6 @@
             img.src = canvas.toDataURL('image/png');
             img.click();
         }
-
-        setInterval(updateImage, 200);
 
         function drawDetections(barcodes) {
             for (const barcode of barcodes) {
@@ -72,10 +73,13 @@
                 drawDetections(barcodes);
             }
         });
-        document.addEventListener('pwa--barcode-detection:detected', ({detail: barcodes}) => {
-            if (barcodes.length !== 0) {
-                drawDetections(barcodes);
-            }
+        document.addEventListener('pwa--barcode-detection:unsupported', () => {
+            alert.removeAttribute('hidden');
+            video.setAttribute('hidden', '');
+            canvas.setAttribute('hidden', '');
+            img.setAttribute('hidden', '');
+            startButton.setAttribute('hidden', '');
+            stopButton.setAttribute('hidden', '');
         });
     </script>
 {% endblock %}
@@ -106,12 +110,9 @@
                     </div>
                 </div>
                 <video id="video" class="w-full" autoplay hidden></video>
-                <canvas id="canvas"></canvas>
-                <img
-                    hidden
-                    id="snapshot"
-                    data-action="click->pwa--barcode-detection#detect"
-                />
+                <canvas id="canvas" hidden></canvas>
+                <img alt="Detection image" hidden id="snapshot"/>
+            </div>
         </section>
     </turbo-frame>
 {% endblock %}
