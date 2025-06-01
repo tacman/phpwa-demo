@@ -149,9 +149,6 @@ return [
     '@hotwired/hotwire-native-bridge' => [
         'version' => '1.1.0',
     ],
-
-
-
     'tailwindcss' => [
         'version' => '4.1.7',
     ],
@@ -181,5 +178,8 @@ return [
     ],
     'daisyui/theme' => [
         'version' => '5.0.38',
+    ],
+    'idb' => [
+        'version' => '8.0.3',
     ],
 ];

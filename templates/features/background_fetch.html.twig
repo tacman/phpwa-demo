@@ -2,6 +2,50 @@
 
 {% block title %}Background Fetch API{% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const wrapper = document.getElementById('progress-wrapper');
+            const bar = document.getElementById('progress-bar');
+
+            function updateBar(downloaded, total) {
+                const percent = total > 0 ? (downloaded / total) * 100 : 0;
+                bar.value = percent;
+            }
+
+            const section = document.querySelector('[data-controller="pwa--background-fetch"]');
+
+            section.addEventListener('pwa--background-fetch:started', event => {
+                wrapper.classList.remove('hidden');
+                updateBar(0, event.detail.downloadTotal || 1);
+            });
+
+            section.addEventListener('pwa--background-fetch:in-progress', event => {
+                updateBar(event.detail.downloaded, event.detail.downloadTotal);
+            });
+
+            section.addEventListener('pwa--background-fetch:completed', () => {
+                wrapper.classList.add('hidden');
+            });
+
+            section.addEventListener('pwa--background-fetch:failed', () => {
+                wrapper.classList.add('hidden');
+            });
+            section.addEventListener('pwa--background-fetch:completed', event => {
+                const url = event.detail.id;
+                const item = section.querySelector(`[data-pwa--background-fetch-url-param="${url}"]`);
+                if (!item) return;
+
+                const status = item.parentNode.querySelector('[data-video-status]');
+                if (status) {
+                    status.textContent = '✅ Disponible hors ligne';
+                }
+                //item.classList.add('bg-green-50', 'dark:bg-green-900/20');
+            });
+        });
+    </script>
+{% endblock %}
 {% block body %}
 <turbo-frame id="content">
     <section class="bg-white dark:bg-gray-900" data-controller="pwa--background-fetch">
@@ -10,20 +54,101 @@
                 Background Fetch API
             </h2>
             <p class="mb-3 font-light text-gray-500 dark:text-gray-400 sm:text-xl">
-                TO BE COMPLETED
+                The Background Fetch API allows you to download files in the background, even when the user is not using your app.
+                With the PWA Bundle, resources are stored in a dedicated IndexDB. <br>
+                When a resource is available, it can be streamed to the user even if the device is offline.
             </p>
+            {% set videos = [
+                {
+                    url: asset('videos/video1.mp4'),
+                    size: 6244446,
+                    author: 'Video by Altaf Shah',
+                    name: 'No name',
+                    credit: 'Video by Altaf Shah: https://www.pexels.com/video/charming-european-street-with-classic-architecture-31521163/'
+                },
+                {
+                    url: asset('videos/video2.mp4'),
+                    size: 49548587,
+                    author: 'Video by Zeynep Sude Gürbüz',
+                    name: 'No name',
+                    credit: 'Video by Zeynep Sude Gürbüz: https://www.pexels.com/video/aerial-view-of-people-walking-on-modern-bridge-32177995/'
+                },
+                {
+                    url: asset('videos/video3.mp4'),
+                    size: 32250784,
+                    author: 'Video by asif khan',
+                    name: 'No name',
+                    credit: 'Video by asif khan: https://www.pexels.com/video/aerial-view-of-scenic-river-and-waterfall-in-nature-29048142/'
+                },
+                {
+                    url: asset('videos/video4.mp4'),
+                    size: 14146550,
+                    author: 'Video by Eren Ataselim',
+                    name: 'No name',
+                    credit: 'Video by Eren Ataselim: https://www.pexels.com/video/herd-of-goats-walking-on-a-wet-road-30646036/'
+                },
+                {
+                    url: asset('videos/video5.mp4'),
+                    size: 15553095,
+                    author: 'Video by Vitaliy Todo',
+                    name: 'No name',
+                    credit: 'Video by Vitaliy Todo: https://www.pexels.com/video/aerial-view-on-village-near-mountain-9974049/'
+                },
+            ] %}
+            {% set totalSize = 0 %}
+            {% set urls = [] %}
+
+            {% for video in videos %}
+                {% set totalSize = totalSize + video.size %}
+                {% set urls = urls|merge([video.url]) %}
+            {% endfor %}
             <button
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 data-capture-target="startButton"
                 data-action="click->pwa--background-fetch#download"
-                data-pwa--background-fetch-id-param="large-file"
-                data-pwa--background-fetch-url-param="/downloads/1.mp4"
-                data-pwa--background-fetch-title-param="Medium video 1"
-                data-pwa--background-fetch-download-total-param="280354743"
+                data-pwa--background-fetch-id-param="videos"
+                data-pwa--background-fetch-url-param="{{ urls|json_encode }}"
+                data-pwa--background-fetch-title-param="Set of videos"
+                data-pwa--background-fetch-download-total-param="{{ totalSize }}"
             >
                 <twig:ux:icon name="ix:video-camera-record-filled" class="w-3.5 h-3.5 me-2" fill="currentColor" />
-                Capture now!
+                Download all
             </button>
+            <div id="progress-wrapper" class="my-4 hidden">
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Téléchargement en cours…
+                </label>
+                <progress
+                    id="progress-bar"
+                    class="w-full h-4 rounded bg-gray-200 dark:bg-gray-700"
+                    max="100"
+                    value="0"
+                ></progress>
+            </div>
+
+            <ul class="list bg-base-100 rounded-box shadow-md">
+                <li class="p-4 pb-2 text-xs opacity-60 tracking-wide">Fast and offline video reader</li>
+                {% for video in videos %}
+                    <li class="list-row">
+                        <div>
+                            <twig:ux:icon name="material-symbols:movie" class="size-10 rounded-box" title="{{ video.credit }}" width="96" height="96" />
+                        </div>
+                        <div data-video-detail>
+                            <div>{{ video.author }}</div>
+                            <div class="text-xs uppercase font-semibold opacity-60">{{ video.name }}</div>
+                            <div class="text-xs text-green-600 dark:text-green-400 font-semibold" data-video-status></div>
+                        </div>
+                        <a
+                            class="btn btn-square btn-ghost"
+                            href="{{ video.url }}"
+                            data-action="click->pwa--background-fetch#get"
+                            data-pwa--background-fetch-url-param="{{ video.url }}"
+                        >
+                            <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
     </section>
 </turbo-frame>

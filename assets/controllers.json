@@ -1,6 +1,10 @@
 {
     "controllers": {
         "@spomky-labs/pwa-bundle": {
+            "background-fetch": {
+                "enabled": true,
+                "fetch": "eager"
+            },
             "backgroundsync-form": {
                 "enabled": true,
                 "fetch": "eager"
