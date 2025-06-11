@@ -13,8 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }} # en deux parties
-    
+      IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}
     
     steps:
       - name: Checkout
@@ -69,10 +68,12 @@ jobs:
           
           echo "tags=$TAGS" >> $GITHUB_OUTPUT
 
-      - name: Build and push image
+      - name: Build and push image (multi-arch with cache)
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
