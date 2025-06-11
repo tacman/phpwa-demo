@@ -55,18 +55,18 @@ jobs:
       - name: Set Docker tags
         id: meta
         run: |
-          TAGS="${{ env.IMAGE_NAME }}:${{ steps.sha.outputs.SHORT_SHA }}"
-
+          TAGS="${{ steps.normal.outputs.NAME }}:${{ steps.sha.outputs.SHORT_SHA }}"
+          
           if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
-            TAGS="$TAGS,${{ env.IMAGE_NAME }}:latest"
+            TAGS="$TAGS,${{ steps.normal.outputs.NAME }}:latest"
           fi
-
+          
           if [[ "${{ github.ref_type }}" == "tag" ]]; then
-            TAGS="$TAGS,${{ env.IMAGE_NAME }}:${{ steps.version.outputs.VERSION }}"
-            TAGS="$TAGS,${{ env.IMAGE_NAME }}:${{ steps.version.outputs.MAJOR }}.${{ steps.version.outputs.MINOR }}"
-            TAGS="$TAGS,${{ env.IMAGE_NAME }}:${{ steps.version.outputs.MAJOR }}"
+            TAGS="$TAGS,${{ steps.normal.outputs.NAME }}:${{ steps.version.outputs.VERSION }}"
+            TAGS="$TAGS,${{ steps.normal.outputs.NAME }}:${{ steps.version.outputs.MAJOR }}.${{ steps.version.outputs.MINOR }}"
+            TAGS="$TAGS,${{ steps.normal.outputs.NAME }}:${{ steps.version.outputs.MAJOR }}"
           fi
-
+          
           echo "tags=$TAGS" >> $GITHUB_OUTPUT
 
       - name: Build and push image
