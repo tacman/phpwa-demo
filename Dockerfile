@@ -66,6 +66,8 @@ RUN set -eux; \
 		pdo_pgsql \
 		gd \
     	imagick \
+    	brotli \
+    	zstd \
 	;
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser

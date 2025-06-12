@@ -26,28 +26,6 @@ if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 		composer install --prefer-dist --no-progress --no-interaction
 	fi
 
-	if [ "$APP_ENV" = "prod" ]; then
-		if php bin/console list | grep -q 'assets:install'; then
-			php bin/console assets:install --no-interaction
-		fi
-
-		if php bin/console list | grep -q ' assets:compress'; then
-			php bin/console  assets:compress --no-interaction
-		fi
-
-		if [ -f importmap.php ]; then
-			php bin/console importmap:install --no-interaction
-		fi
-
-		if [ -d vendor/symfonycasts/tailwind-bundle ]; then
-			php bin/console tailwind:build
-		fi
-
-		if [ -d vendor/symfony/asset-mapper ]; then
-			php bin/console asset-map:compile
-		fi
-	fi
-
 	if grep -q ^DATABASE_URL= .env; then
 		echo "Waiting for database to be ready..."
 		ATTEMPTS_LEFT_TO_REACH_DATABASE=60

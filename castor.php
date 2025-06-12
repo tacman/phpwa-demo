@@ -237,7 +237,7 @@ function stop(): void
 function start(): void
 {
     run(['docker', 'compose', 'up', '-d']);
-    frontend(true);
+    frontend();
 }
 
 #[AsTask(description: 'Build the images.')]
@@ -249,7 +249,7 @@ function build(): void
 #[AsTask(description: 'Compile the frontend.')]
 function frontend(bool $watch = false): void
 {
-    $consoleOutput = run(['bin/console'], context: context()/*->withQuiet()*/);
+    $consoleOutput = run(['bin/console'], context: context()->withQuiet());
     $commandsToRun = [
         'assets:install' => [],
         'importmap:install' => [],

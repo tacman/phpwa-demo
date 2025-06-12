@@ -3,9 +3,9 @@ name: Build and Push Docker Image to GHCR
 on:
   push:
     branches:
-      - main
+      - "*.x"
     tags:
-      - '*.*.*'
+      - '*'
   workflow_dispatch:
 
 jobs:

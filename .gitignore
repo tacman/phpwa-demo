@@ -24,9 +24,11 @@
 /assets/vendor/
 ###< symfony/asset-mapper ###
 
+/public/idb
 /public/workbox
 /public/pwa
 /public/favicon.ico
+/public/sw.js.*
 /public/sw.js
 
 ###> liip/imagine-bundle ###
