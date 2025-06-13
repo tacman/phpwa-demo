@@ -1,3 +1,4 @@
+---
 name: Build and Push Docker Image to GHCR
 
 on:
@@ -5,7 +6,7 @@ on:
     branches:
       - main
     tags:
-      - '*'
+      - "*"
   workflow_dispatch:
 
 env:
@@ -139,3 +140,4 @@ jobs:
               --tag $IMAGE_NAME:$MAJOR.$MINOR \
               $IMAGE_NAME:amd64 \
               $IMAGE_NAME:arm64
+          fi
