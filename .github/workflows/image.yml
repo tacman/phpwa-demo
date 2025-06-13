@@ -103,6 +103,14 @@ jobs:
   manifest:
     needs: [build-amd64, build-arm64, prepare]
     runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: ${{ needs.prepare.outputs.image_name }}
+      SHORT_SHA: ${{ needs.prepare.outputs.short_sha }}
+      IS_TAG: ${{ needs.prepare.outputs.is_tag }}
+      VERSION: ${{ needs.prepare.outputs.version }}
+      MAJOR: ${{ needs.prepare.outputs.major }}
+      MINOR: ${{ needs.prepare.outputs.minor }}
+      GITHUB_REF: ${{ github.ref }}
     steps:
       - uses: docker/login-action@v3
         with:
@@ -113,20 +121,21 @@ jobs:
       - name: Create and push Docker manifest
         run: |
           docker buildx imagetools create \
-            --tag ${{ needs.prepare.outputs.image_name }}:${{ needs.prepare.outputs.short_sha }} \
-            ${{ needs.prepare.outputs.image_name }}:amd64 \
-            ${{ needs.prepare.outputs.image_name }}:arm64
+            --tag $IMAGE_NAME:$SHORT_SHA \
+            $IMAGE_NAME:amd64 \
+            $IMAGE_NAME:arm64
 
-          # If main branch
-          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+          if [[ "$GITHUB_REF" == "refs/heads/main" ]]; then
             docker buildx imagetools create \
-              --tag ${{ needs.prepare.outputs.image_name }}:latest \
-              ${{ needs.prepare.outputs.image_name }}:amd64 \
-              ${{ needs.prepare.outputs.image_name }}:arm64
+              --tag $IMAGE_NAME:latest \
+              $IMAGE_NAME:amd64 \
+              $IMAGE_NAME:arm64
           fi
 
-          # If tagged release
-          if [[ "${{ needs.prepare.outputs.is_tag }}" == "true" ]]; then
+          if [[ "$IS_TAG" == "true" ]]; then
             docker buildx imagetools create \
-              --tag ${{ needs.prepare.outputs.image_name }}:${{ needs.prepare.outputs.version }} \
-              --tag ${{ needs.prepare.outputs.image_name_
+              --tag $IMAGE_NAME:$VERSION \
+              --tag $IMAGE_NAME:$MAJOR \
+              --tag $IMAGE_NAME:$MAJOR.$MINOR \
+              $IMAGE_NAME:amd64 \
+              $IMAGE_NAME:arm64
