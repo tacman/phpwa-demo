@@ -22,7 +22,7 @@ pwa:
         potrace: "potrace"
     manifest:
         enabled: true
-        public_url: '/pwa/site.{locale}.webmanifest'
+        public_url: '/site.{locale}.webmanifest'
         background_color: "#FCFCFC"
         theme_color: "#BE202F"
         dark_theme_color: "#EF4444"
