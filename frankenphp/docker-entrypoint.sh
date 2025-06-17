@@ -46,6 +46,11 @@ if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 	if [ "$APP_ENV" = "prod" ]; then
 		echo "🔍 Production environment detected"
 
+		if [ -f config/importmap.php ]; then
+			echo "📦 Running importmap:install..."
+			php bin/console importmap:install --no-interaction
+		fi
+
 		if [ -d vendor/symfonycasts/tailwind-bundle ]; then
 			echo "🎨 Running tailwind:build..."
 			php bin/console tailwind:build
@@ -54,11 +59,6 @@ if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 		if [ -d vendor/symfony/asset-mapper ]; then
 			echo "🗺️ Running asset-map:compile..."
 			php bin/console asset-map:compile
-		fi
-
-		if [ -f config/importmap.php ]; then
-			echo "📦 Running importmap:install..."
-			php bin/console importmap:install --no-interaction
 		fi
 	fi
 
