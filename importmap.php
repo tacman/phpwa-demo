@@ -152,4 +152,7 @@ return [
     '@hotwired/hotwire-native-bridge' => [
         'version' => '1.1.0',
     ],
+    'idb' => [
+        'version' => '8.0.3',
+    ],
 ];
