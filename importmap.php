@@ -39,28 +39,28 @@ return [
         'version' => '4.1.0',
     ],
     '@babel/runtime/helpers/esm/typeof' => [
-        'version' => '7.26.10',
+        'version' => '7.27.6',
     ],
     '@babel/runtime/helpers/esm/createForOfIteratorHelper' => [
-        'version' => '7.26.10',
+        'version' => '7.27.6',
     ],
     '@babel/runtime/helpers/esm/assertThisInitialized' => [
-        'version' => '7.26.10',
+        'version' => '7.27.6',
     ],
     '@babel/runtime/helpers/esm/inherits' => [
-        'version' => '7.26.10',
+        'version' => '7.27.6',
     ],
     '@babel/runtime/helpers/esm/createSuper' => [
-        'version' => '7.26.10',
+        'version' => '7.27.6',
     ],
     '@babel/runtime/helpers/esm/classCallCheck' => [
-        'version' => '7.26.10',
+        'version' => '7.27.6',
     ],
     '@babel/runtime/helpers/esm/createClass' => [
-        'version' => '7.26.10',
+        'version' => '7.27.6',
     ],
     '@babel/runtime/helpers/esm/defineProperty' => [
-        'version' => '7.26.10',
+        'version' => '7.27.6',
     ],
     'mustache' => [
         'version' => '4.2.0',
@@ -77,9 +77,6 @@ return [
     ],
     '@hotwired/turbo' => [
         'version' => '8.0.13',
-    ],
-    'babel-runtime/core-js/promise' => [
-        'version' => '6.26.0',
     ],
     'highlight.js' => [
         'version' => '11.11.1',
@@ -99,24 +96,24 @@ return [
         'version' => '0.77.1',
     ],
     'three' => [
-        'version' => '0.174.0',
+        'version' => '0.178.0',
     ],
     'reveal.js' => [
-        'version' => '5.2.0',
+        'version' => '5.2.1',
     ],
     'reveal.js/dist/reveal.css' => [
-        'version' => '5.2.0',
+        'version' => '5.2.1',
         'type' => 'css',
     ],
     'reveal.js/dist/theme/white.css' => [
-        'version' => '5.2.0',
+        'version' => '5.2.1',
         'type' => 'css',
     ],
     'reveal.js/plugin/markdown/markdown.esm.js' => [
-        'version' => '5.2.0',
+        'version' => '5.2.1',
     ],
     'reveal.js/dist/theme/serif.css' => [
-        'version' => '5.2.0',
+        'version' => '5.2.1',
         'type' => 'css',
     ],
     'vosk' => [
@@ -129,7 +126,7 @@ return [
         'version' => '3.0.3',
     ],
     'debug' => [
-        'version' => '4.4.0',
+        'version' => '4.4.1',
     ],
     'node-gyp-build' => [
         'version' => '4.8.4',
@@ -140,14 +137,8 @@ return [
     'flowbite-datepicker' => [
         'version' => '1.3.2',
     ],
-    'core-js/library/fn/promise' => [
-        'version' => '2.6.12',
-    ],
-    'core-js' => [
-        'version' => '3.41.0',
-    ],
     '@hotwired/hotwire-native-bridge' => [
-        'version' => '1.1.0',
+        'version' => '1.2.1',
     ],
     'idb' => [
         'version' => '8.0.3',
