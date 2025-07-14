@@ -1,12 +1,20 @@
 {
     "controllers": {
         "@spomky-labs/pwa-bundle": {
+            "background-fetch": {
+                "enabled": false,
+                "fetch": "eager"
+            },
             "backgroundsync-form": {
                 "enabled": true,
                 "fetch": "eager"
             },
             "badge": {
                 "enabled": true,
+                "fetch": "eager"
+            },
+            "barcode-detection": {
+                "enabled": false,
                 "fetch": "eager"
             },
             "battery": {
@@ -87,6 +95,10 @@
             },
             "wake-lock": {
                 "enabled": true,
+                "fetch": "eager"
+            },
+            "web-push": {
+                "enabled": false,
                 "fetch": "eager"
             }
         },
